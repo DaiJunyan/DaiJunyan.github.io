@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Computer Networking Summary1 |
+    
+    Junyan&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/ru_logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-networkingsummary1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Computer Networking Summary1
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/06/17/networkingsummary1/" class="article-date">
+  <time datetime="2019-06-17T19:34:25.000Z" itemprop="datePublished">2019-06-17</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p>This is a note I took on my Networking course instruted by Dr.Daehan Kwak at Kean. All pictures in this post are from Dr.Kwak’s PowerPoint. This note is based on text book Computer Networking: A Top-Down Approach (7th edition) written by James Kurose and Keith Ross.</p>
+<a id="more"></a>
+<h3 id="What-is-the-Internet"><a href="#What-is-the-Internet" class="headerlink" title="What is the Internet?"></a>What is the Internet?</h3><ul>
+<li>Hosts = end systems</li>
+<li>Communication links<ul>
+<li>fibber, copper, radio, satellite</li>
+<li>transmission rate: bandwidth(bits/sec)</li>
+</ul>
+</li>
+<li>Packet switches<ul>
+<li>routers &amp; switches</li>
+</ul>
+</li>
+<li>Internet: Interconnected ISPs</li>
+<li>Protocols: e.g., TCP, IP, HTTP</li>
+<li>Internet standards: IETF, RFC</li>
+</ul>
+<h3 id="Network-Structure"><a href="#Network-Structure" class="headerlink" title="Network Structure"></a>Network Structure</h3><ul>
+<li>Network edge<ul>
+<li>hosts: clients and servers</li>
+</ul>
+</li>
+<li>Access networks: wired/wireless communication links<ul>
+<li>Digital Subscriber Line(DSL)<ul>
+<li>dedicated</li>
+</ul>
+</li>
+<li>Cable network<ul>
+<li>shared</li>
+</ul>
+</li>
+<li>Home network</li>
+<li>Enterprise access network (Ethernet)</li>
+<li>Wireless access network<ul>
+<li>wireless LANs<ul>
+<li>802.11 b/g/n(WiFi)</li>
+</ul>
+</li>
+<li>wide-area wireless access<ul>
+<li>Cellular: 3G,4G(LTE),5G</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Physical media<ul>
+<li>guided media: twisted pair copper wire, coaxial cable, fiber optic cable</li>
+<li>unguided media: radio links</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Network core<ul>
+<li>packet switching<ul>
+<li>store and forward</li>
+<li>queuing delay and loss</li>
+<li>two key function: routing &amp; forwarding</li>
+</ul>
+</li>
+<li>circuit switching(telephone networks)<ul>
+<li>FDM &amp; TDM</li>
+</ul>
+</li>
+<li>Internet structure<ul>
+<li>ISPs (Internet Service Provider)</li>
+<li>PoPs(Points of Presence)</li>
+<li>multi-homing</li>
+<li>peering</li>
+<li>IXPs(Internet exchange points)</li>
+<li>“tier-1” commercial ISPs (e.g. AT&amp;T) — global ISPs</li>
+<li>Content provider ISPs (e.g. Google) — private network</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Delay-loss-throughput-in-networks"><a href="#Delay-loss-throughput-in-networks" class="headerlink" title="Delay,loss,throughput in networks"></a>Delay,loss,throughput in networks</h3><ul>
+<li>Delay<ul>
+<li>d<sub>nodal</sub> = d<sub>proc</sub> + d<sub>queue</sub> + d<sub>trans</sub> + d<sub>prop</sub></li>
+<li>d<sub>nodal</sub>: total nodal delay</li>
+<li>d<sub>proc</sub>: nodal processing</li>
+<li>d<sub>queue</sub>: queueing delay</li>
+<li>d<sub>trans</sub>: transmission delay = packet length / link bandwidth</li>
+<li>d<sub>prop</sub>: propagation delay = distance of physical link / propagation speed</li>
+</ul>
+</li>
+<li>Packet loss: packet arriving to full queue dropped</li>
+<li>Throughput<ul>
+<li>rate (bits/time unit) at which bits transferred between sender/receiver</li>
+<li>instantaneous throughput</li>
+<li>average throughput</li>
+<li>bottleneck link: min(R<sub>c</sub>,R<sub>s</sub>)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Protocol-layers-and-Encapsulation"><a href="#Protocol-layers-and-Encapsulation" class="headerlink" title="Protocol layers and Encapsulation"></a>Protocol layers and Encapsulation</h3><ul>
+<li>Application layer — Message</li>
+<li>Transport layer —– Segment</li>
+<li>Network layer —— Datagram</li>
+<li>Link layer ———— Frame</li>
+<li>Physical layer</li>
+</ul>
+<h3 id="Network-Security"><a href="#Network-Security" class="headerlink" title="Network Security"></a>Network Security</h3><ul>
+<li>Malware<ul>
+<li>virus: self-replicating infection by receiving/executing  object (e.g., e-mail attachment)</li>
+<li>worm: self-replicating infection by passively receiving object that gets itself executed (e.g., vulnerable sw, network)</li>
+<li>spyware malware</li>
+<li>infected host can be enrolled in botnet (a network of private computers infected with malware), used for spam or DDoS attacks</li>
+</ul>
+</li>
+<li>Attacks<ul>
+<li>Dos, DDoS</li>
+<li>Packet sniffing</li>
+<li>IP spoofing</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/17/networkingsummary1/" data-id="ck0ai1unm0000vcumgpk98x2k"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Networking/">Networking</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/09/07/tutorial/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Tutorial &amp; Reference
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/03/31/new-post/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Create a new post/draft/page</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Junyan&#39;s Blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Email me:  <a href="mailto: daijunyancn@gmail.com">daijunyancn@gmail.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/images.jpg" alt="Junyan&#39;s Blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

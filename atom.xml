@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Junyan&#39;s Blog</title>
+  
+  <subtitle>Learning Programming|English|Photographing</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-09-07T19:53:16.754Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Junyan Dai</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tutorial &amp; Reference</title>
+    <link href="http://yoursite.com/2019/09/07/tutorial/"/>
+    <id>http://yoursite.com/2019/09/07/tutorial/</id>
+    <published>2019-09-07T19:05:24.000Z</published>
+    <updated>2019-09-07T19:53:16.754Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;sup&gt;This is a simple instruction of how I built this blog with all the references.&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&quot;HEXO&quot;&gt;&lt;a href=&quot;#HEXO&quot; class=&quot;headerlink&quot; title=&quot;HEXO&quot;&gt;&lt;/a&gt;HEXO&lt;/h3&gt;&lt;p&gt;This blog is based on the framework &lt;strong&gt;Hexo&lt;/strong&gt; powered by Node.js. It is very powerful with various plugins, themes, and easy to be deployed to GitHub.
+    
+    </summary>
+    
+    
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Computer Networking Summary1</title>
+    <link href="http://yoursite.com/2019/06/17/networkingsummary1/"/>
+    <id>http://yoursite.com/2019/06/17/networkingsummary1/</id>
+    <published>2019-06-17T19:34:25.000Z</published>
+    <updated>2019-09-06T22:55:21.176Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a note I took on my Networking course instruted by Dr.Daehan Kwak at Kean. All pictures in this post are from Dr.Kwak’s PowerPoint. This note is based on text book Computer Networking: A Top-Down Approach (7th edition) written by James Kurose and Keith Ross.&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Networking" scheme="http://yoursite.com/tags/Networking/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Create a new post/draft/page</title>
+    <link href="http://yoursite.com/2019/03/31/new-post/"/>
+    <id>http://yoursite.com/2019/03/31/new-post/</id>
+    <published>2019-03-31T20:50:01.000Z</published>
+    <updated>2019-09-08T01:46:29.163Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;sub&gt;This is a tutorial about how to create a new post, draft or page on hexo&lt;br&gt;Note that all posts are &lt;strong&gt;Markdown&lt;/strong&gt; files. &lt;a href=&quot;https://help.github.com/en/articles/basic-writing-and-formatting-syntax&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Click here to learn &lt;strong&gt;Markdown&lt;/strong&gt; syntax.&lt;/a&gt;&lt;/sub&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>
