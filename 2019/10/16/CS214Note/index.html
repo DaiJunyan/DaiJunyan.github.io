@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    System Programming Note |
+    
+    Junyan&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/ru_logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-CS214Note" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      System Programming Note
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/10/16/CS214Note/" class="article-date">
+  <time datetime="2019-10-16T20:50:01.000Z" itemprop="datePublished">2019-10-16</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p><sub>This is a note for my system programming course</sub></p>
+<a id="more"></a>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><p>difference between Java and C<br>&emsp;- java is a interpreted language<br>&emsp;&emsp; javac source.java —&gt; java bytecode(source)<br>&emsp;&emsp; java source —&gt; instructions<br>&emsp;- C is a compiled language<br>&emsp;&emsp; gcc source.c —&gt; instructions<br>&emsp;- Something is in Java but not in C:<br>&emsp;&emsp; String (kinda no, C uses char array to represent string)<br>&emsp;&emsp; boolean<br>&emsp;&emsp; method</p>
+<p>Basic Data Types:<br>&emsp;int (most often 4 bytes in today’s 32-bit or 64-bit processors. 2 bytes in old 16-bit processor)<br>&emsp;char (1 byte)<br>&emsp;float (4 bytes)<br>&emsp;double (8 bytes)<br>&emsp;short (2 bytes)<br>&emsp;long (8 bytes)<br>&emsp;…</p>
+<p>Care and use of C code (to avoid errors):<br>&emsp;0. Always return<br>&emsp;1. Always initialize everything</p>
+<p>C is a memory-oriented language</p>
+<h3 id="‘Strings’"><a href="#‘Strings’" class="headerlink" title="‘Strings’"></a>‘Strings’</h3><p>String in C is basically a null-terminated char array (‘/0’ in the end of the array)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> <span class="built_in">string</span>[<span class="number">10</span>] = <span class="string">"a C string"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Type-Creation-Aliasing"><a href="#Type-Creation-Aliasing" class="headerlink" title="Type Creation/Aliasing"></a>Type Creation/Aliasing</h3><h4 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h4><p>collection of data of different types (collection of data of the same type is an array)</p>
+<pre><code>struct &lt;name&gt;
+{
+    |&lt;type0&gt;&lt;name0&gt;|;
+    |&lt;type1&gt;&lt;name1&gt;|;
+    ...
+}</code></pre><p>The size of structs depends on the implementation. Compiler may add padding to avoid alignment issues. Hence the size of a struct is greatr than or equal to sum of size of each individual member.<br><sup>Alignment issues: for example, a 32-bit system reads a word, which is 4 bytes, at a time. Lets say we define a struct with a char member followed by an integer, the char would take up the first byte in a word and there are 3 left. As we known an integer is 4 bytes so that it can not be allocated in the same word with the char. Thus, the compiler will add 3 padding bytes after the char, and allocate the integer in the next word.</sup></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example of building a struct in C</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">	<span class="keyword">int</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//initialize a point variable</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span> <span class="title">location</span> = &#123;</span><span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">//accessing members with dot operator</span></span><br><span class="line">location.x = <span class="number">9</span>;</span><br><span class="line">location.y = <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="union"><a href="#union" class="headerlink" title="union"></a>union</h4><p>Like struct, but all members share the same memory location (Same data, access as different types)</p>
+<pre><code>union &lt;name&gt;
+{
+    |&lt;type0&gt;&lt;name0&gt;|;
+    |&lt;type1&gt;&lt;name1&gt;|;
+    ...
+}</code></pre><p>The size of a union is equal to the size of largest member in union</p>
+<h4 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h4><p>Build new types that consist of multiple discrete values</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> _boolean &#123;<span class="literal">true</span>=<span class="number">1</span>, <span class="literal">false</span>=<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">enum</span> <span class="title">boolean</span>;</span> <span class="comment">//typedef see next section</span></span><br><span class="line"><span class="comment">//now we have boolean</span></span><br><span class="line"><span class="comment">//can use like while(true)</span></span><br><span class="line"><span class="comment">//actually in C ... 0 is false, anything other than 0 is true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="typedef"><a href="#typedef" class="headerlink" title="typedef"></a>typedef</h4><p>Redefine stuff for convenience</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span>* chpoint; <span class="comment">//now can use 'chpoint' as 'char*'</span></span><br><span class="line"><span class="comment">// the following two lines mean the same thing</span></span><br><span class="line"><span class="keyword">char</span> *p = <span class="string">'a'</span>;</span><br><span class="line">chpoint p = <span class="string">'a'</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//make structs</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> _<span class="title">Node</span> * <span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Pointers"><a href="#Pointers" class="headerlink" title="Pointers"></a>Pointers</h3><p>A variable that does not hold data, but a memory location<br>    &amp;A == “get the address of A”<br>    *A == “go to the memory address A holds” (dereference)<br>The size of a pointer is 4 or 8 bytes depending on the system</p>
+<h4 id="deref-pointer-to-struct"><a href="#deref-pointer-to-struct" class="headerlink" title="deref pointer to struct:"></a>deref pointer to struct:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">thingy</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">thingy</span> <span class="title">stuff</span>=&#123;</span><span class="number">2</span>&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">thingy</span>* <span class="title">ptr</span> = &amp;<span class="title">stuff</span>;</span></span><br><span class="line"><span class="comment">//either of following dereferences works</span></span><br><span class="line">ptr-&gt;a = <span class="number">1</span>;</span><br><span class="line">(\*ptr).a = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Pointer-arithmetic"><a href="#Pointer-arithmetic" class="headerlink" title="Pointer arithmetic:"></a>Pointer arithmetic:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> ptr[<span class="number">10</span>];</span><br><span class="line"><span class="comment">//a and b get the value from same address</span></span><br><span class="line"><span class="keyword">char</span> a = *(ptr+i); <span class="comment">//increment by sizeof type</span></span><br><span class="line"><span class="keyword">char</span> b = ptr[i];</span><br></pre></td></tr></table></figure>
+
+<h4 id="With-const-qualifier"><a href="#With-const-qualifier" class="headerlink" title="With const qualifier:"></a>With const qualifier:</h4><p>const sticks to the name, value could be changed through memory</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a is constant so that any change on value a such a++ is not allowed</span></span><br><span class="line"><span class="comment">//but one can change the value of a indirectly through its pointer</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span>* hackit = &amp;a;</span><br><span class="line">*hackit = *hackit + <span class="number">1</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>,a);</span><br><span class="line"><span class="comment">//output: 3</span></span><br></pre></td></tr></table></figure>
+
+<p>more examples:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> b = <span class="number">99</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * c = &amp;a;</span><br><span class="line">*c=<span class="number">3</span>; <span class="comment">//OK</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const data</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span>* d = &amp;a;<span class="comment">//or int const* b</span></span><br><span class="line">(*d)++; <span class="comment">//No Good</span></span><br><span class="line">d = &amp;b; <span class="comment">//OK</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const address</span></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> e = &amp;a;</span><br><span class="line">(*e)++; <span class="comment">//OK</span></span><br><span class="line">e = &amp;b; <span class="comment">//NG</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//const data &amp; address</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> f = &amp;a; <span class="comment">//int const * const f</span></span><br><span class="line">(*f)++; <span class="comment">//NG</span></span><br><span class="line">f = &amp;b; <span class="comment">//NG</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="function-pointers"><a href="#function-pointers" class="headerlink" title="function pointers"></a>function pointers</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//point to the beginning of a function</span></span><br><span class="line"><span class="comment">//if the function has parameter, put the type of parameter in ()</span></span><br><span class="line"><span class="comment">//e.g. int (*funcptr)(char) = ...</span></span><br><span class="line"><span class="keyword">int</span> (*funcptr)() = somefunction;</span><br><span class="line"><span class="comment">//invoke a function</span></span><br><span class="line"><span class="comment">//int b = somefunction();</span></span><br><span class="line"><span class="comment">//invoke a function by pointer</span></span><br><span class="line"><span class="keyword">int</span> a = funcptr();</span><br></pre></td></tr></table></figure>
+
+<p>pass a function to another function by function pointer</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stuff</span><span class="params">(<span class="keyword">void</span>* a, <span class="keyword">void</span>* b, <span class="keyword">int</span> (*comparator)(<span class="keyword">void</span>*, <span class="keyword">void</span>*))</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	comparator(a,b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="malloc-free"><a href="#malloc-free" class="headerlink" title="malloc/free"></a>malloc/free</h3><p>malloc: dynamic memory allocation. allocates memory from the heap(variables in heap can be accessed globally), returns a pointer to it<br>free: marks a dynamically allocated pointer as no longer in use</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> _<span class="title">Node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> _<span class="title">Node</span> * <span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"></span><br><span class="line">Node * linkedListHead = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));</span><br><span class="line">...</span><br><span class="line"><span class="built_in">free</span>(linkedListHead);</span><br></pre></td></tr></table></figure>
+
+<p>Things NOT to do with free:<br>&emsp;0- Don’t free twice</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">free</span>(ptr);</span><br><span class="line"><span class="built_in">free</span>(ptr);</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;1- Don’t free statically allocated pointers</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">int</span> * ptr = &amp;a;</span><br><span class="line"><span class="built_in">free</span>(ptr);</span><br><span class="line"><span class="comment">//if a is assigned in a function(for example main), the address of a is allocated in the function's stack and will be released as soon as the function returns.</span></span><br></pre></td></tr></table></figure>
+
+<p>&emsp;2- Don’t free things that aren’t pointers</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="built_in">free</span>(a);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Definitions-amp-Macros"><a href="#Definitions-amp-Macros" class="headerlink" title="Definitions &amp; Macros"></a>Definitions &amp; Macros</h3><p>definitions: label assigned to some stuff…direct replacement<br>macros: definition with parameters. e.g. <code>#define SQUARE(X) (X)*(X)</code></p>
+<p>sample code:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// It works, but is a really bad plan!</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ANUM 2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ZERO 0==</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SQUARE(x) x*x <span class="comment">//to fix that, put parentheses (x)*(x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = ANUM;</span><br><span class="line">	<span class="keyword">if</span>(!(ZERO a))</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,SQUARE(a+<span class="number">3</span>));</span><br><span class="line">		<span class="comment">//will print 11!...because 2+3*2+3...</span></span><br><span class="line">		<span class="comment">//subexpression in the pranthesis is not resolved before calling the macro</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="User-defined-Libraries"><a href="#User-defined-Libraries" class="headerlink" title="User-defined Libraries"></a>User-defined Libraries</h3><p>header files: (no execute code)<br>&emsp;definitions, macros<br>&emsp;types: enum, typedef, unions, structs…<br>&emsp;prototypes (function declarations)</p>
+<p>&emsp;header.h:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _HEADER_H <span class="comment">//do not define the same thing twice</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _HEADER_H</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">addone</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>libraries:<br>&emsp;implementations for prototypes in headers (no main)<br>&emsp;(compiled to .o files)</p>
+<p>&emsp;header.c:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">addone</span><span class="params">(<span class="keyword">int</span> arg0)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> arg0+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>To use user-defined library<br>&emsp;(put <code>#include &quot;header.h&quot;</code> in the beginning of test.c file)<br>&emsp;<code>gcc -c header.c //==&gt; you will get header.o</code><br>&emsp;<code>gcc test.c header.o // ==&gt; get a.out</code></p>
+<h3 id="Makefiles"><a href="#Makefiles" class="headerlink" title="Makefiles"></a>Makefiles</h3><p>Automating/Scripting a compilation sequence (a convinent way to compile the whole project)</p>
+<pre><code>&lt;directive&gt;:&lt;req0&gt;...&lt;reqN&gt;
+    &lt;command&gt;</code></pre><p> sample makefile:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">all: main.c library.o</span><br><span class="line">	gcc main.c library.o</span><br><span class="line"></span><br><span class="line">library.o: library.c</span><br><span class="line">	gcc -c library.c</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	rm a.out; rm library.o</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">	./a.out</span><br></pre></td></tr></table></figure>
+
+<p> on command line:<br><code>$make clean; make; make test</code></p>
+<h3 id="Useful-Shell-Commands"><a href="#Useful-Shell-Commands" class="headerlink" title="Useful Shell Commands"></a>Useful Shell Commands</h3><p><a href="http://man7.org/linux/man-pages/man1/ls.1.html" target="_blank" rel="noopener">ls</a>, <a href="http://man7.org/linux/man-pages/man1/cat.1.html" target="_blank" rel="noopener">cat</a>, <a href="http://man7.org/linux/man-pages/man1/wc.1.html" target="_blank" rel="noopener">wc</a>, <a href="http://man7.org/linux/man-pages/man1/diff.1.html" target="_blank" rel="noopener">diff</a>, <a href="http://man7.org/linux/man-pages/man1/less.1.html" target="_blank" rel="noopener">less</a>, <a href="http://man7.org/linux/man-pages/man1/more.1.html" target="_blank" rel="noopener">more</a>, <a href="http://man7.org/linux/man-pages/man1/man.1.html" target="_blank" rel="noopener">man</a>, <a href="http://man7.org/linux/man-pages/man1/grep.1.html" target="_blank" rel="noopener">grep</a></p>
+<p> redirect STDOUT to a file(with overwrite):<br>&emsp;<code>cmd &gt; filename</code><br> append STDOUT to a file(without overwrite):<br>&emsp;<code>cmd &gt;&gt; filename</code><br> make STDOUT of one cmd flow to STDIN of another<br>&emsp;<code>cmd | cmd</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/16/CS214Note/" data-id="ck1trjwic0002hwumlx2o8smh"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS214/">CS214</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/System-Programming/">System Programming</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/10/16/music_theory_review/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Music Theory Note</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Junyan&#39;s Blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Email me:  <a href="mailto: daijunyancn@gmail.com">daijunyancn@gmail.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/images.jpg" alt="Junyan&#39;s Blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

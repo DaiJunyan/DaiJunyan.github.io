@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Tutorial &amp; Reference |
+    Formalisms for specifying a language |
     
     Junyan&#39;s Blog</title>
   
@@ -25,7 +25,7 @@
   <section class="outer">
   
 
-<article id="post-tutorial" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-CS314Note" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
@@ -33,7 +33,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Tutorial &amp; Reference
+      Formalisms for specifying a language
     </h1>
   
   
@@ -46,8 +46,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/09/07/tutorial/" class="article-date">
-  <time datetime="2019-09-07T19:05:24.000Z" itemprop="datePublished">2019-09-07</time>
+        <a href="/2019/10/07/CS314Note/" class="article-date">
+  <time datetime="2019-10-07T19:08:56.000Z" itemprop="datePublished">2019-10-07</time>
 </a>
         
       </div>
@@ -70,22 +70,80 @@
       
 
       
-        <p><sup>This is a simple instruction of how I built this blog with all the references.</sup></p>
-<h3 id="HEXO"><a href="#HEXO" class="headerlink" title="HEXO"></a>HEXO</h3><p>This blog is based on the framework <strong>Hexo</strong> powered by Node.js. It is very powerful with various plugins, themes, and easy to be deployed to GitHub.<a id="more"></a> <a href="https://hexo.io/" target="_blank" rel="noopener">See detail on Hexo page</a></p>
-<h3 id="THEME"><a href="#THEME" class="headerlink" title="THEME"></a>THEME</h3><p>The original theme of this blog is called <strong>Ocean</strong>. <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Click here to see on GitHub</a><br><a href="https://zhwangart.github.io/" target="_blank" rel="noopener">Click here to see author’s blog page(含中文Theme教程)</a></p>
-<h3 id="Tutorial-Links"><a href="#Tutorial-Links" class="headerlink" title="Tutorial Links"></a>Tutorial Links</h3><p>An easy and quick-to-start way is to follow <a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo Documentation</a>. Youtube video tutorial is provided on this site.<br>If you are looking for a more detailed instruction, I recommend <a href="https://thief.one/2017/03/03/Hexo%20build%20blog%20tutorial/" target="_blank" rel="noopener">Hexo build bolg tutorial</a> posted nmask’s blog.</p>
-<h3 id="Other-References"><a href="#Other-References" class="headerlink" title="Other References"></a>Other References</h3><p>Home page video were trimmed from <strong>Rutgers Scarlet Knight Hits The Slopes</strong> <div class="video-container"><iframe src="//www.youtube.com/embed/qGKMQdgzhJI" frameborder="0" allowfullscreen></iframe></div></p>
-<blockquote>
-<p><strong>Links</strong>:<br>Hexo website: <a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a><br>Theme(ocean) GitHub: <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">https://github.com/zhwangart/hexo-theme-ocean</a><br>Official Tutorial: <a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a><br>Recommended Tutorial: <a href="https://thief.one/2017/03/03/Hexo%20build%20blog%20tutorial/" target="_blank" rel="noopener">https://thief.one/2017/03/03/Hexo%20build%20blog%20tutorial/</a><br>Home page video Youtube: <a href="https://www.youtube.com/watch?v=qGKMQdgzhJI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=qGKMQdgzhJI</a></p>
-</blockquote>
+        <p><sub>This is a note I took on Principle of Programming Language course instruted by Dr.John-Austen Francisco at Rutgers. All the note is based on insructor’s teaching materials, including the textbook Programming Language Pragmatics (3rd edition) written by Michael L. Scott.</sub></p>
+<a id="more"></a>
+<h3 id="Grammars"><a href="#Grammars" class="headerlink" title="Grammars"></a>Grammars</h3><p><strong>1. definitions:</strong></p>
+<ul>
+<li><strong>Grammars:</strong> codifies semantics and syntax of a language in a set of rules for converting Non-Terminal to Terminal</li>
+<li><strong>Terminal:</strong> defined language symbol(composed of characters in your alphabet)</li>
+<li><strong>Non-Terminal:</strong> a name for a set of terminals(or sequences) that represents some metaphor or concept (not a language symbol)</li>
+</ul>
+<p><strong>2. parsing and derivation:</strong></p>
+<ul>
+<li>derivation: grammar to production</li>
+<li>parse: production to grammar check</li>
+<li>lower in parse tree == higher precedence</li>
+<li>ambiguity and removing ambiguity: precedence, associativity</li>
+</ul>
+<p><strong>3. types of grammars:</strong></p>
+<ul>
+<li>Context Free Grammars(CFGs)<ul>
+<li>specify the overall structure of a programming language</li>
+<li>only one non-terminal on the left-hand side</li>
+</ul>
+</li>
+<li>Regular Grammars(RGs)<ul>
+<li>specify the structure of tokens</li>
+<li>only one non-terminal on the left-hand side</li>
+<li>and must derive to something of either the forms: T NT(right-linear), or the forms: NT T(left-linear) i.e. S ==&gt; aSb is disallowed</li>
+</ul>
+</li>
+<li>RGs are a subset of CFGs</li>
+</ul>
+<p><strong>4. BNF and Extended BNF</strong></p>
+<ul>
+<li>Backus-Naur Form(BNF)<ul>
+<li>a language for defining the grammar of a language</li>
+</ul>
+</li>
+<li>Extended BNF(EBNF)<ul>
+<li>a collection of extensions to BNF</li>
+<li>{…} repetition(zeor or more times)</li>
+<li>[…] option</li>
+<li>(…) grouping</li>
+</ul>
+</li>
+</ul>
+<h3 id="Regular-Expressions"><a href="#Regular-Expressions" class="headerlink" title="Regular Expressions"></a>Regular Expressions</h3><ul>
+<li>Formalism for describing simple PL constructs</li>
+<li><a href="https://en.wikipedia.org/wiki/Regular_expression#Formal_definition" target="_blank" rel="noopener">see exmples and explanations of RE notation</a></li>
+</ul>
+<h3 id="Automata"><a href="#Automata" class="headerlink" title="Automata"></a>Automata</h3><ul>
+<li>Finite State Automaton(FA/FSA)<ul>
+<li>&lt;set of states, labeled transitions, start state, final/accepting state(s)&gt;</li>
+<li>if, after consuming all characters in a token, you are on an accepting state, the token is in the language decided by this FA</li>
+<li>Deterministic FAs(DFA)<ul>
+<li>no ε moves</li>
+<li>at most one transition for any state / input pair</li>
+</ul>
+</li>
+<li>Nondeterministic FAs(NFA)<ul>
+<li>ε moves</li>
+<li>for some state / input, more than one transition</li>
+</ul>
+</li>
+<li>RE =&gt; NFA =&gt; DFA =&gt; RE</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/07/tutorial/" data-id="ck1trjwip000dhwumuy0kuo46"
+      <a data-url="http://yoursite.com/2019/10/07/CS314Note/" data-id="ck1trjwi50000hwumuie2329x"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS314/">CS314</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Formal-Language/">Formal Language</a></li></ul>
 
     </footer>
 
@@ -95,19 +153,19 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/09/09/Scrapy/" class="article-nav-link">
+      <a href="/2019/10/07/Scheme_note/" class="article-nav-link">
         <strong class="article-nav-caption">Newer posts</strong>
         <div class="article-nav-title">
           
-            Web Crawling in Python --- Scrapy
+            Basic Coding in Scheme
           
         </div>
       </a>
     
     
-      <a href="/2019/06/17/networkingsummary1/" class="article-nav-link">
+      <a href="/2019/09/09/Scrapy/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title">Computer Networking Summary1</div>
+        <div class="article-nav-title">Web Crawling in Python --- Scrapy</div>
       </a>
     
   </nav>

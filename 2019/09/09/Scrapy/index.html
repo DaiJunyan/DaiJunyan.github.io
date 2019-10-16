@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Web Crawling in Python --- Scrapy |
+    
+    Junyan&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/ru_logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-Scrapy" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Web Crawling in Python --- Scrapy
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/09/09/Scrapy/" class="article-date">
+  <time datetime="2019-09-09T20:31:56.000Z" itemprop="datePublished">2019-09-09</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p>This summer, I have been working on web crawling frequently. If you are looking for some good tools, I would recommand Python and a framework called <strong>Scrapy</strong>, which is powerful, fast and easy to start for beginners.  </p>
+<a id="more"></a>
+<p><sup>This page is an introduction of basic and necessary steps and some tricks that I think might be helpful from my experience of using Scrapy. <a href="https://docs.scrapy.org/en/latest/index.html" target="_blank" rel="noopener">A detailed guide click here</a></sup></p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>If you are using Jetbrains Pycharm like I am, simply click <strong>File → Settings → Project Interpreter → + → type Scrapy on the search bar → Install Package</strong><br>Or find in <a href="https://docs.scrapy.org/en/latest/intro/install.html" target="_blank" rel="noopener">Installation Guide</a></p>
+<h3 id="Start-a-Project"><a href="#Start-a-Project" class="headerlink" title="Start a Project"></a>Start a Project</h3><p>In command line enter:</p>
+<pre><code>scrapy startproject example</code></pre><p>You will get a directory:</p>
+<pre><code>example/
+    example/
+        __init__.py
+        items.py
+        middlewares.py
+        pipelines.py
+        settings.py
+        spiders/
+            __init__.py
+    scrapy.cfg</code></pre><h3 id="Spider"><a href="#Spider" class="headerlink" title="Spider"></a>Spider</h3><pre><code>cd example
+scrapy genspider example example.com</code></pre><p>Then, you will get a python file under spiders/ folder, where you can write or edit your spiders<br>Here is an example I wrote for getting all China primary schools’ info listed on <a href="http://xuexiao.51sxue.com/schoolByArea/t_2.html" target="_blank" rel="noopener">51sxue</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="keyword">from</span> sxue.items <span class="keyword">import</span> SxueItem</span><br><span class="line"></span><br><span class="line"><span class="comment">#1st tier cities</span></span><br><span class="line">allowed_cities = [<span class="string">'北京市'</span>, <span class="string">'上海市'</span>, <span class="string">'广州市'</span>, <span class="string">'深圳市'</span>, <span class="string">'成都市'</span>, <span class="string">'杭州市'</span>, <span class="string">'重庆市'</span>, <span class="string">'武汉市'</span>, <span class="string">'西安市'</span>, <span class="string">'苏州市'</span>,</span><br><span class="line">                  <span class="string">'天津市'</span>, <span class="string">'南京市'</span>, <span class="string">'长沙市'</span>, <span class="string">'郑州市'</span>, <span class="string">'东莞市'</span>, <span class="string">'青岛市'</span>, <span class="string">'沈阳市'</span>, <span class="string">'宁波市'</span>, <span class="string">'昆明市'</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SxueXiaoxueSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">'sxue_xiaoxue'</span></span><br><span class="line">    allowed_domains = [<span class="string">'xuexiao.51sxue.com'</span>]</span><br><span class="line">    start_urls = [<span class="string">'http://xuexiao.51sxue.com/schoolByArea/t_2.html'</span>]</span><br><span class="line">    base_url = <span class="string">'http://xuexiao.51sxue.com'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(<span class="string">"爬取所有省份..."</span>)</span><br><span class="line">        url_list = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[2]/ul[1]/li[2]/ol/a/@href'</span>).extract()</span><br><span class="line">        province_list = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[2]/ul[1]/li[2]/ol/a/text()'</span>).extract()</span><br><span class="line">        <span class="keyword">for</span> url, province <span class="keyword">in</span> zip(url_list, province_list):</span><br><span class="line">            print(province)</span><br><span class="line">            <span class="keyword">if</span> province <span class="keyword">in</span> [<span class="string">'北京市'</span>, <span class="string">'天津市'</span>, <span class="string">'上海市'</span>, <span class="string">'重庆市'</span>]:</span><br><span class="line">                <span class="keyword">yield</span> scrapy.Request(url=url, callback=self.parse_more, meta=&#123;<span class="string">'city'</span>: province&#125;)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">yield</span> scrapy.Request(url=url, callback=self.parse_city, meta=&#123;<span class="string">'province'</span>: province&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_city</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(<span class="string">'爬取&#123;&#125;的城市...'</span>.format(response.meta[<span class="string">'province'</span>]))</span><br><span class="line">        url_list = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[2]/ul[2]/li[2]/ol/a/@href'</span>).extract()</span><br><span class="line">        city_list = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[2]/ul[2]/li[2]/ol/a/text()'</span>).extract()</span><br><span class="line">        print(city_list)</span><br><span class="line">        <span class="keyword">for</span> url, city <span class="keyword">in</span> zip(url_list, city_list):</span><br><span class="line">            <span class="keyword">if</span> city <span class="keyword">in</span> allowed_cities:</span><br><span class="line">                print(<span class="string">"选中城市："</span>, city)</span><br><span class="line">                <span class="keyword">yield</span> scrapy.Request(url=url, callback=self.parse_more, meta=&#123;<span class="string">'city'</span>: city&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_more</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        city = response.meta[<span class="string">'city'</span>]</span><br><span class="line">        <span class="keyword">if</span> city <span class="keyword">in</span> [<span class="string">'北京市'</span>, <span class="string">'天津市'</span>, <span class="string">'上海市'</span>, <span class="string">'重庆市'</span>]:</span><br><span class="line">            print(<span class="string">"******爬取直辖市"</span>, city, <span class="string">"*********"</span>)</span><br><span class="line">        print(<span class="string">'爬取更多&#123;&#125;的小学...'</span>.format(response.meta[<span class="string">'city'</span>]))</span><br><span class="line"></span><br><span class="line">        url = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[7]/a/@href'</span>).extract()</span><br><span class="line">        <span class="keyword">if</span> url:</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=url[<span class="number">0</span>], callback=self.parse_school, meta=&#123;<span class="string">'city'</span>: city, <span class="string">'more'</span>: <span class="number">1</span>&#125;, dont_filter=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">else</span>: <span class="comment"># some city e.g.海口太原 does not have more link</span></span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=response.request.url, callback=self.parse_school, meta=&#123;<span class="string">'city'</span>:city, <span class="string">'more'</span>: <span class="number">0</span>&#125;, dont_filter=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_school</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(<span class="string">'########爬取&#123;&#125;幼儿园中...'</span>.format(response.meta[<span class="string">'city'</span>]))</span><br><span class="line">        more = response.meta[<span class="string">'more'</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> more:</span><br><span class="line">            school_urls = response.xpath(<span class="string">'//*[@id="dsadas"]/@href'</span>).extract()</span><br><span class="line">            school_names = response.xpath(<span class="string">'//*[@id="dsadas"]/@title'</span>).extract()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            school_urls = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[6]/ul/li[2]/ol[1]/dl[1]/a/@href'</span>).extract()</span><br><span class="line">            school_names = response.xpath(<span class="string">'//*[@id="content"]/div[1]/div[6]/ul/li[2]/ol[1]/dl[1]/a/@title'</span>).extract()</span><br><span class="line">        print(school_urls)</span><br><span class="line">        print(school_names)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> school_url, school_name <span class="keyword">in</span> zip(school_urls, school_names):</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=school_url, callback=self.parse_item, meta=&#123;<span class="string">'school_name'</span>: school_name&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># get next page</span></span><br><span class="line">        next_page_url = response.xpath(<span class="string">'//div[@class="school_main"]/div[@class="school_page"]/div[1]/div/a[contains(text(),"下一页")]/@href'</span>).extract()</span><br><span class="line">        <span class="keyword">if</span> next_page_url:</span><br><span class="line">            next_url = self.base_url + next_page_url[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=next_url, callback=self.parse_school, meta=&#123;<span class="string">'city'</span>: response.meta[<span class="string">'city'</span>], <span class="string">'more'</span>: <span class="number">1</span>&#125;)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse_item</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        print(<span class="string">'Hi, this is &#123;&#125;\'s school page!'</span>.format(response.meta[<span class="string">'school_name'</span>]))</span><br><span class="line">        item = SxueItem()</span><br><span class="line"></span><br><span class="line">        item[<span class="string">'school_name'</span>] = response.meta[<span class="string">'school_name'</span>]</span><br><span class="line">        item[<span class="string">'address'</span>] = response.xpath(<span class="string">'//*[@id="address"]/text()'</span>).re(<span class="string">'[：:](.+)'</span>)</span><br><span class="line">        item[<span class="string">'phone'</span>] = response.xpath(<span class="string">'//*[@id="phone"]/b/text()'</span>).extract()</span><br><span class="line">        item[<span class="string">'weblink'</span>] = response.xpath(<span class="string">'//*[@id="webSite"]/text()'</span>).extract()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> item</span><br></pre></td></tr></table></figure>
+
+<p>Not that:</p>
+<ul>
+<li>If the program is requesting a link other than <code>allowed_domains</code>, add <code>dont_filter</code> at the end of <code>scrapy.Request()</code></li>
+<li>To pass data …. use <code>meta</code></li>
+</ul>
+<h3 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h3><h3 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h3><h3 id="Setting"><a href="#Setting" class="headerlink" title="Setting"></a>Setting</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/09/09/Scrapy/" data-id="ck1trjwih0005hwumpchw9vn3"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web-Crawler/">Web Crawler</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/10/07/CS314Note/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Formalisms for specifying a language
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/09/07/tutorial/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Tutorial &amp; Reference</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Junyan&#39;s Blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Email me:  <a href="mailto: daijunyancn@gmail.com">daijunyancn@gmail.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/images.jpg" alt="Junyan&#39;s Blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-09-07T19:53:16.754Z</updated>
+  <updated>2019-10-16T20:29:45.462Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,117 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>System Programming Note</title>
+    <link href="http://yoursite.com/2019/10/16/CS214Note/"/>
+    <id>http://yoursite.com/2019/10/16/CS214Note/</id>
+    <published>2019-10-16T20:50:01.000Z</published>
+    <updated>2019-10-16T20:29:45.462Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;sub&gt;This is a note for my system programming course&lt;/sub&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="System Programming" scheme="http://yoursite.com/tags/System-Programming/"/>
+    
+      <category term="C" scheme="http://yoursite.com/tags/C/"/>
+    
+      <category term="CS214" scheme="http://yoursite.com/tags/CS214/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Music Theory Note</title>
+    <link href="http://yoursite.com/2019/10/16/music_theory_review/"/>
+    <id>http://yoursite.com/2019/10/16/music_theory_review/</id>
+    <published>2019-10-16T20:02:01.000Z</published>
+    <updated>2019-10-16T20:05:15.306Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;sub&gt;This is my Intro to music theory course review note. All the note is based on and all pics in this post are from the textbook Philip Lambert, Principles of Music, 2nd edition, Oxford University Press.&lt;/sub&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Music" scheme="http://yoursite.com/tags/Music/"/>
+    
+      <category term="Music Theory" scheme="http://yoursite.com/tags/Music-Theory/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Basic Coding in Scheme</title>
+    <link href="http://yoursite.com/2019/10/07/Scheme_note/"/>
+    <id>http://yoursite.com/2019/10/07/Scheme_note/</id>
+    <published>2019-10-08T00:24:23.000Z</published>
+    <updated>2019-10-16T19:58:05.605Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;sub&gt;This is basically a note for the special forms and the built-in functions provided by Scheme library, and some tricks to write program in Scheme.&lt;/sub&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="CS314" scheme="http://yoursite.com/tags/CS314/"/>
+    
+      <category term="Scheme" scheme="http://yoursite.com/tags/Scheme/"/>
+    
+      <category term="Lisp" scheme="http://yoursite.com/tags/Lisp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Formalisms for specifying a language</title>
+    <link href="http://yoursite.com/2019/10/07/CS314Note/"/>
+    <id>http://yoursite.com/2019/10/07/CS314Note/</id>
+    <published>2019-10-07T19:08:56.000Z</published>
+    <updated>2019-10-16T19:58:29.352Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;sub&gt;This is a note I took on Principle of Programming Language course instruted by Dr.John-Austen Francisco at Rutgers. All the note is based on insructor’s teaching materials, including the textbook Programming Language Pragmatics (3rd edition) written by Michael L. Scott.&lt;/sub&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Formal Language" scheme="http://yoursite.com/tags/Formal-Language/"/>
+    
+      <category term="CS314" scheme="http://yoursite.com/tags/CS314/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Web Crawling in Python --- Scrapy</title>
+    <link href="http://yoursite.com/2019/09/09/Scrapy/"/>
+    <id>http://yoursite.com/2019/09/09/Scrapy/</id>
+    <published>2019-09-09T20:31:56.000Z</published>
+    <updated>2019-10-16T20:38:08.115Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This summer, I have been working on web crawling frequently. If you are looking for some good tools, I would recommand Python and a framework called &lt;strong&gt;Scrapy&lt;/strong&gt;, which is powerful, fast and easy to start for beginners.  &lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="Web Crawler" scheme="http://yoursite.com/tags/Web-Crawler/"/>
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="Scrapy" scheme="http://yoursite.com/tags/Scrapy/"/>
+    
+  </entry>
   
   <entry>
     <title>Tutorial &amp; Reference</title>
@@ -41,7 +152,7 @@
     <link href="http://yoursite.com/2019/06/17/networkingsummary1/"/>
     <id>http://yoursite.com/2019/06/17/networkingsummary1/</id>
     <published>2019-06-17T19:34:25.000Z</published>
-    <updated>2019-09-06T22:55:21.176Z</updated>
+    <updated>2019-09-09T20:38:45.079Z</updated>
     
     <summary type="html">
     
@@ -51,7 +162,7 @@
     
     
     
-      <category term="Networking" scheme="http://yoursite.com/tags/Networking/"/>
+      <category term="Network Principles" scheme="http://yoursite.com/tags/Network-Principles/"/>
     
   </entry>
   

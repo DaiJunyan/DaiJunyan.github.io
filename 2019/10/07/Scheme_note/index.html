@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    Basic Coding in Scheme |
+    
+    Junyan&#39;s Blog</title>
+  
+    <link rel="shortcut icon" href="/images/ru_logo.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-Scheme_note" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Basic Coding in Scheme
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2019/10/07/Scheme_note/" class="article-date">
+  <time datetime="2019-10-08T00:24:23.000Z" itemprop="datePublished">2019-10-07</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p><sub>This is basically a note for the special forms and the built-in functions provided by Scheme library, and some tricks to write program in Scheme.</sub></p>
+<a id="more"></a>
+<h3 id="What-is-Scheme"><a href="#What-is-Scheme" class="headerlink" title="What is Scheme"></a>What is Scheme</h3><p>Scheme is a functional programming language, a dialect of <a href="http://www.paulgraham.com/lisp.html" target="_blank" rel="noopener">Lisp</a>. In Scheme, a program is an expression to be evaluated. It repeatedly reads an expression, evaluates it, then prints the answer(result of the evaluation). This progress is known as “Read-eval-print loop”(REPL)<br>An expression could be:</p>
+<ul>
+<li>a constant: 1, 2.0, “hello, world”</li>
+<li>a variable with assigned value: a(user-defined e.g.(define a 1)), +(built-in variable, stores the addition procedure)</li>
+<li>a function application: written as a list(e.g. (+ 1 2))</li>
+</ul>
+<h3 id="Special-Forms"><a href="#Special-Forms" class="headerlink" title="Special Forms"></a>Special Forms</h3><h4 id="quote"><a href="#quote" class="headerlink" title="quote"></a>quote</h4><pre><code>;;quote is a special symbol, which does not evaluate but just returns arguments
+&gt;(quote a)
+a
+&gt;(quote (+ 1 2))
+(+ 1 2)</code></pre><h4 id="lambda"><a href="#lambda" class="headerlink" title="lambda"></a>lambda</h4><pre><code>;;lambda is a special form for user to define a function
+&gt;(lambda (x) (+ x x))
+#&lt;procedure&gt;
+&gt;((lambda(x) (+ x x)) 1)
+2</code></pre><h4 id="define"><a href="#define" class="headerlink" title="define"></a>define</h4><pre><code>;;top-level definitions
+&gt;(define a 1)
+&gt;a
+1
+&gt;(define b (+ 1 1))
+&gt;b
+2
+&gt;(define double (lambda(x) (+ x x))) ;;or using the shorthand (define (double x) (+ x x))
+&gt;(double 2)
+4</code></pre><h4 id="Booleans"><a href="#Booleans" class="headerlink" title="Booleans"></a>Booleans</h4><pre><code>;;#f represents false, everything besides #f represents true(usually #t)
+&gt;(even? 1)
+#f
+&gt;(zero? 0)
+#t
+&gt;(null? &apos;())
+#t
+&gt;(&gt; 1 2)
+#f
+&gt;(not #f);;and,or...similarly
+#t
+&gt;(eq? &apos;c &apos;c)
+#t</code></pre><h5 id="if"><a href="#if" class="headerlink" title="if"></a>if</h5><pre><code>;;if(1==0)
+;;    return 1 + 1
+;;else
+;;    return 1 - 1
+&gt;(if (zero? 1) (+ 1 1) (- 1 1))</code></pre><h5 id="cond"><a href="#cond" class="headerlink" title="cond"></a>cond</h5><pre><code>;;if...
+;;else if...
+;;else if...
+;;...
+;;else...
+(define bubbleS
+    (lambda (lst)
+        (cond ((null? lst) &apos;())
+              ((&lt;= (car lst) (cadr lst)) (cons (car lst) (bubbleS (cdr lst))))
+                ((&gt; (car lst) (cadr lst)) (cons (cadr lst) (bubbleS (cons (car lst) (cddr lst)))))
+          )
+    )
+)</code></pre><h4 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h4><h5 id="car"><a href="#car" class="headerlink" title="car"></a>car</h5><pre><code>;;get the first element of a list
+&gt;(car &apos;(1 2 3))
+1</code></pre><h5 id="cdr"><a href="#cdr" class="headerlink" title="cdr"></a>cdr</h5><pre><code>;;get the rest of the list except the first element
+&gt;(cdr &apos;(1 2 3))
+(2 3)</code></pre><h5 id="c-a-d-r"><a href="#c-a-d-r" class="headerlink" title="c(a|d)+r"></a>c(a|d)+r</h5><pre><code>;;evaluate from right to left..
+&gt;(caar &apos;((1 2) 3 4)) ;;equavalent to (car (car ((1 2) 3 4)))
+1
+&gt;(cadr &apos;((1 2) 3 4)) ;;equavalent to (car (cdr &apos;((1 2) 3 4)))
+3
+&gt;(cadar &apos;(((4 5) 24 9) (4 18) (1 (99)) 3))
+24</code></pre><h5 id="cons"><a href="#cons" class="headerlink" title="cons"></a>cons</h5><pre><code>;;pair a value to a list, place the value to the first position of the list
+&gt;(cons 1 &apos;(2 3))
+(1 2 3)
+&gt;(cons &apos;(a b) &apos;(c d))
+((a b) c d)</code></pre><h5 id="assoc"><a href="#assoc" class="headerlink" title="assoc"></a>assoc</h5><pre><code>;;assoc-list is a datatype that stores symbol-&gt;data
+;;assoc function returns the list if the symbol is found
+;;or returns #f
+&gt;(assoc ‘q ‘((b 3 4 5) (q horse cow) (pi 3.14)))
+(q horse cow)</code></pre><h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><pre><code>;;append a list in the front of another list
+&gt;(append &apos;(1) &apos;(2))
+(1 2)</code></pre><h5 id="member"><a href="#member" class="headerlink" title="member"></a>member</h5><pre><code>;;returns the rest of the list that start from the value if the value is found in the list(top-level)
+;;or returns #f
+&gt;(member 2 &apos;(1 2 3))
+(2 3)
+&gt;(member &apos;(2) &apos;(1 2 3))
+#f
+&gt;(member &apos;(2) &apos;(1 (2) 3))
+((2) 3)</code></pre><h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><pre><code>;;a way to bind local variables
+(let (
+    (x 1)
+    (y 2)
+    )
+    (+ x y)
+)
+;;this is equavalent to
+((lambda(x y) (+ x y)) 1 2)</code></pre><h5 id="let-1"><a href="#let-1" class="headerlink" title="let*"></a>let*</h5><pre><code>;;can use the variables right after it is binded
+;;if use let instead of let*, error will be given
+(let* ((f (lambda(x) (+ x x)))
+       (a (f 2)))
+    (f a))</code></pre><h5 id="letrec"><a href="#letrec" class="headerlink" title="letrec"></a>letrec</h5><pre><code>;;can use the variables while binding...recursively
+(letrec ((f (lambda (x)
+                (if (null? x) 0
+                    (+ 1 (f (cdr x)))))))
+    (f &apos;(a b c d)))</code></pre><p>…apply…map…foldr</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/07/Scheme_note/" data-id="ck1trjwii0007hwumhttlbm81"
+         class="article-share-link">Share</a>
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS314/">CS314</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lisp/">Lisp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scheme/">Scheme</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2019/10/16/music_theory_review/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            Music Theory Note
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2019/10/07/CS314Note/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Formalisms for specifying a language</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2019 Junyan&#39;s Blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Email me:  <a href="mailto: daijunyancn@gmail.com">daijunyancn@gmail.com</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/images.jpg" alt="Junyan&#39;s Blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
