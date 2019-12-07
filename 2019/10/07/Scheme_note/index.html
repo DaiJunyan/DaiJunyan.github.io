@@ -141,7 +141,8 @@ a
 ;;assoc function returns the list if the symbol is found
 ;;or returns #f
 &gt;(assoc ‘q ‘((b 3 4 5) (q horse cow) (pi 3.14)))
-(q horse cow)</code></pre><h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><pre><code>;;append a list in the front of another list
+(q horse cow)
+;;note that assoc is a tail recursive function....</code></pre><h5 id="append"><a href="#append" class="headerlink" title="append"></a>append</h5><pre><code>;;append a list in the front of another list
 &gt;(append &apos;(1) &apos;(2))
 (1 2)</code></pre><h5 id="member"><a href="#member" class="headerlink" title="member"></a>member</h5><pre><code>;;returns the rest of the list that start from the value if the value is found in the list(top-level)
 ;;or returns #f
@@ -171,7 +172,7 @@ a
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/07/Scheme_note/" data-id="ck1trjwii0007hwumhttlbm81"
+      <a data-url="http://yoursite.com/2019/10/07/Scheme_note/" data-id="ck3v17quu0000noum6lnvez2v"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CS314/">CS314</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lisp/">Lisp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scheme/">Scheme</a></li></ul>
