@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Create a new post/draft/page |
+    Intro to DS -- course note |
     
     Junyan&#39;s Blog</title>
   
@@ -25,7 +25,7 @@
   <section class="outer">
   
 
-<article id="post-new-post" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-IntroDS" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
@@ -33,7 +33,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Create a new post/draft/page
+      Intro to DS -- course note
     </h1>
   
   
@@ -46,8 +46,8 @@
 
     
       <div class="article-meta">
-        <a href="/2019/03/31/new-post/" class="article-date">
-  <time datetime="2019-03-31T20:50:01.000Z" itemprop="datePublished">2019-03-31</time>
+        <a href="/2020/04/20/IntroDS/" class="article-date">
+  <time datetime="2020-04-21T00:58:38.000Z" itemprop="datePublished">2020-04-20</time>
 </a>
         
       </div>
@@ -70,30 +70,35 @@
       
 
       
-        <p><sub>This is a tutorial about how to create a new post, draft or page on hexo<br>Note that all posts are <strong>Markdown</strong> files. <a href="https://help.github.com/en/articles/basic-writing-and-formatting-syntax" target="_blank" rel="noopener">Click here to learn <strong>Markdown</strong> syntax.</a></sub></p>
-<a id="more"></a>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post:"></a>Create a new post:</h3><pre><code>$ hexo new postname</code></pre><p>By default, the Markdown file <code>postname.md</code> created by this command will be under <code>\source\_posts</code>. You can change default create path by editing <code>default_layout</code> in the file <code>_config.yml</code>:</p>
-<pre><code># Writing
-new_post_name: :title.md # File name of new posts
-default_layout: post # Change it to another page name you have under \source
-titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab</code></pre><h3 id="Create-a-new-draft"><a href="#Create-a-new-draft" class="headerlink" title="Create a new draft:"></a>Create a new draft:</h3><pre><code>$ hexo new draft draftname</code></pre><p>In stead of typing the <code>postname</code>, type out <code>draft</code> followed by <code>draftname</code> to create a new Markdown file called <code>draftname.md</code> under the path <code>\source\_drafts</code><br>Different from the post files, the new draft file just created will not show up on the web. If you want your <code>_drafes</code> folder to show up, you can run a special command with hexo server:</p>
-<pre><code>#Note that you&apos;ve shut down hexo server
-$ hexo server --draft</code></pre><p>To publish the draft to new post, namely, move the <code>draftname.md</code> file from <code>_drafrs</code> to <code>_post</code>(actually it depends on what is set to<code>default_layout</code>). Type command:</p>
-<pre><code>$ hexo publish draftname</code></pre><h3 id="Create-a-new-page"><a href="#Create-a-new-page" class="headerlink" title="Create a new page:"></a>Create a new page:</h3><pre><code>$ hexo new page pagename</code></pre><p>Hexo allow user to create a new page other than <code>_post</code> the blog post page. Since the new page is not a blog post, it is not going to get rendered on the home page as a blog post. If you want to access it, you need to append <code>/pagename/</code> directly to your homepage URL</p>
-<h3 id="Others-to-be-updated"><a href="#Others-to-be-updated" class="headerlink" title="Others (to be updated):"></a>Others (to be updated):</h3><ul>
-<li>To change template of post files, edit files under the <code>scaffolds</code> folder</li>
-<li><a href="https://hexo.io/docs/tag-plugins" target="_blank" rel="noopener">Tag Plugins instruction</a> </li>
-<li><a href="https://github.com/hexojs/hexo/issues/919#issuecomment-63229952" target="_blank" rel="noopener">To insert an image on specified position in an article</a></li>
+        <h3 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h3><p>take some input and then predict a numeric output</p>
+<ul>
+<li>Linear regression: multiply weight w and plus bias term b<a id="more"></a>
+
+</li>
 </ul>
+<h3 id="ML-Modern-Classification"><a href="#ML-Modern-Classification" class="headerlink" title="ML Modern Classification"></a>ML Modern Classification</h3><ul>
+<li><p>Binary classification: simply means 2-choice output</p>
+<ul>
+<li><p>Simplest Linear Classifier, using Sign(Thredshold) function plugged behind linear regression</p>
+</li>
+<li><p>Logistic Regression, using sigmoid function as Activation Function<br>  just adapt regression approach, adding another conversion function(Activation Function) to convert goodness score to classification</p>
+</li>
+<li><p>Perceptron Algorithm<br>  inputs –&gt; Neuron –&gt; output</p>
+</li>
+<li><p>Max-Margin Approach<br>  Threshold: find the midpoint of boundry points of 2 clusters<br>  Margin: the distance between the threshold and the nearest point for each of the 2 clusters. It is the maximum possible margin that we can have to both sides simultaneously<br>  The most popular kind of Max-Margin classifiers are SVMs:<br>  1)as wide as possible<br>  2)keep data in clusters separated<br>  3)the actual SVM allow some of points to be on the wrong side(outliers), called soft-margin approach</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ML-Evaluation"><a href="#ML-Evaluation" class="headerlink" title="ML Evaluation"></a>ML Evaluation</h3><p>Train-Test Split –&gt; Validation Split</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/31/new-post/" data-id="ck99bwer0000d6sumc3wxeftd"
+      <a data-url="http://yoursite.com/2020/04/20/IntroDS/" data-id="ck99bweqh00006sum34ko44lz"
          class="article-share-link">Share</a>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Science/">Data Science</a></li></ul>
 
     </footer>
 
@@ -103,15 +108,11 @@ $ hexo server --draft</code></pre><p>To publish the draft to new post, namely, m
     
   <nav class="article-nav">
     
-      <a href="/2019/06/17/networkingsummary1/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            Computer Networking Summary1
-          
-        </div>
-      </a>
     
+      <a href="/2020/04/17/crackingInterview/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title">Cracking Interviews - Data Engineer</div>
+      </a>
     
   </nav>
 
