@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Junyan&#39;s Blog</title>
   
-  <subtitle>too lazy to update...</subtitle>
+  <subtitle>Social distancing and practice good hygiene!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-21T03:17:40.180Z</updated>
+  <updated>2020-04-28T01:37:39.893Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/04/20/IntroDS/"/>
     <id>http://yoursite.com/2020/04/20/IntroDS/</id>
     <published>2020-04-21T00:58:38.000Z</published>
-    <updated>2020-04-21T03:17:40.180Z</updated>
+    <updated>2020-04-28T01:37:39.893Z</updated>
     
     <summary type="html">
     

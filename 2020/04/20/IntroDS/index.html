@@ -90,8 +90,25 @@
 </ul>
 </li>
 </ul>
-<h3 id="ML-Evaluation"><a href="#ML-Evaluation" class="headerlink" title="ML Evaluation"></a>ML Evaluation</h3><p>Train-Test Split –&gt; Validation Split</p>
-
+<h3 id="ML-Evaluation"><a href="#ML-Evaluation" class="headerlink" title="ML Evaluation"></a>ML Evaluation</h3><p>Train-Test Split –&gt; Validation Split<br>F-Fold Cross-Validation</p>
+<ul>
+<li><p>Evaluating Regression<br>  Loss Function: Mean squared error (MSE) is the most commonly used loss function for regression</p>
+</li>
+<li><p>Evaluating Classification<br>  Classification Accuracy: What percentage was correct?</p>
+<p>  Error Rate: What percentage was incorrect? (1-accuracy)</p>
+<p>  Confusion Matrices:</p>
+<pre><code>- in Binary Classification:
+    |True Positive|False Negative|
+    |False Positive|True Negative|
+    - Precision: TP / (TP+FP)  Can get great precision by only accepting those we are really sure about
+    - Recall: TP / (TP+FN)     Total recall when you say all is positive
+    - Thus we need to find a trade-off: Harmonic mean of precision and recall
+    F&lt;sub&gt;1&lt;/sub&gt; score:</code></pre><p>  Further Analysis:</p>
+<pre><code>- Learning curve: measures the performance of a model at different amounts of trainning data
+- Error Analysis</code></pre></li>
+</ul>
+<h3 id="Multi-Class-Classification"><a href="#Multi-Class-Classification" class="headerlink" title="Multi-Class Classification"></a>Multi-Class Classification</h3><p>(different from multi-lable classification)<br>    Decision Tree<br>    Conversion to Binary Classification:<br>        One-vs-Rest Approach: Learn one seperate classifier for each output class, then Convert goodness scores into classification(e.g. choose class with highest goodness score)<br>        improvement: Probability Distribution(convert each class into probability).<br>            Softmax Function: Instead of picking the highest score, we feed all goodness scores into a Softmax Function. (Sigmoid Function can be seen as a special case of Softmax Function)<br>            Cross-Entropy Loss: Softmax is typically used together with Cross-Entropy Loss function<br>        General Form: y = Wx + b</p>
+<h3 id="31"><a href="#31" class="headerlink" title="31"></a>31</h3>
       
     </div>
     <footer class="article-footer">
