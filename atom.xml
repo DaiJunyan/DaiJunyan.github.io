@@ -118,11 +118,11 @@
     
     
     
+      <category term="CS314" scheme="http://yoursite.com/tags/CS314/"/>
+    
       <category term="Scheme" scheme="http://yoursite.com/tags/Scheme/"/>
     
       <category term="Lisp" scheme="http://yoursite.com/tags/Lisp/"/>
-    
-      <category term="CS314" scheme="http://yoursite.com/tags/CS314/"/>
     
   </entry>
   
@@ -141,9 +141,9 @@
     
     
     
-      <category term="CS314" scheme="http://yoursite.com/tags/CS314/"/>
-    
       <category term="Formal Language" scheme="http://yoursite.com/tags/Formal-Language/"/>
+    
+      <category term="CS314" scheme="http://yoursite.com/tags/CS314/"/>
     
   </entry>
   
