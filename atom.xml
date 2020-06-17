@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-28T01:37:39.893Z</updated>
+  <updated>2020-05-07T03:39:04.363Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,14 @@
     <link href="http://yoursite.com/2020/04/20/IntroDS/"/>
     <id>http://yoursite.com/2020/04/20/IntroDS/</id>
     <published>2020-04-21T00:58:38.000Z</published>
-    <updated>2020-04-28T01:37:39.893Z</updated>
+    <updated>2020-05-07T03:39:04.363Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Regression&quot;&gt;&lt;a href=&quot;#Regression&quot; class=&quot;headerlink&quot; title=&quot;Regression&quot;&gt;&lt;/a&gt;Regression&lt;/h3&gt;&lt;p&gt;take some input and then predict a numeric output&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Linear regression: multiply weight w and plus bias term b
+      &lt;h3 id=&quot;Graph-Mining&quot;&gt;&lt;a href=&quot;#Graph-Mining&quot; class=&quot;headerlink&quot; title=&quot;Graph Mining&quot;&gt;&lt;/a&gt;Graph Mining&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Clustering coefficient&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Diameter&lt;/p&gt;
     
     </summary>
     

@@ -70,11 +70,34 @@
       
 
       
-        <h3 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h3><p>take some input and then predict a numeric output</p>
-<ul>
-<li>Linear regression: multiply weight w and plus bias term b<a id="more"></a>
+        <h3 id="Graph-Mining"><a href="#Graph-Mining" class="headerlink" title="Graph Mining"></a>Graph Mining</h3><ul>
+<li><p>Clustering coefficient</p>
+</li>
+<li><p>Diameter</p>
+<a id="more"></a>
 
 </li>
+</ul>
+<h3 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h3><ul>
+<li>Euclidean distance<br>  in some ways the opposite of similarity</li>
+<li>k-Means clustering<br>  choose k random representative points –&gt; assign all points to cluster with nearest representative point –&gt; compute the centroid as the new representative for each cluster –&gt; repeat until stable<br>  problem1: how to determine k<br>  solution1: Elbow Method<br>  problem2: the k representative points are initialized randomly, which may lead to differnt final result<br>  solution2: Do multiple runs and select best result, or manually select other than random(k-means++ algorithm)<br>  Shortcomings: Differently Sized Clusters, Different Densities, Non-Globular Shapes</li>
+<li>Hierarchical clustering<br>  Top-Down clustering<br>  Bottom-up clustering(Hierarchical Agglomerative clustering)<br>  Single Link clustering<pre><code>Max Similarity/Min Distance
+cons: chaining problem, sensitive to noise</code></pre>  Complete Link clustering<pre><code>Min Similarity/Max Distance
+cons: may break up big clusters</code></pre>  Average Similarity/Distance<br>  Centroid Similarity/Distance</li>
+</ul>
+<h3 id="Vecter-Representation"><a href="#Vecter-Representation" class="headerlink" title="Vecter Representation"></a>Vecter Representation</h3><ul>
+<li>Feature Engineering<br>  Rescale/Normalize<br>  Categorical Variable: One Hot Encoding<br>  Text Representation: bag of word, word2vec</li>
+</ul>
+<h3 id="Dimensionality-Reduction"><a href="#Dimensionality-Reduction" class="headerlink" title="Dimensionality Reduction"></a>Dimensionality Reduction</h3><p>Principle Components Analysis(PCA)</p>
+<h3 id="Regression"><a href="#Regression" class="headerlink" title="Regression"></a>Regression</h3><p>take some input and then predict a numeric output</p>
+<ul>
+<li>Linear regression: multiply weight w and plus bias term b<br>  Underfitting: too high bias<br>  Overfitting: too high variance</li>
+</ul>
+<h3 id="Simple-Classification"><a href="#Simple-Classification" class="headerlink" title="Simple Classification"></a>Simple Classification</h3><ul>
+<li>k Nearest Neighbours(kNN)<br>  downsides: slow computation for large training set, distance may not correspond to sameness of class(e.g. some feature dimensions may be more/less important than others)</li>
+<li>Decision Trees<br>  use Information Gain to choose best split<br>  Pruning</li>
+<li>Random Forest Algorithm<br>  use booststrap method to draw random samples with replacement</li>
+<li>Gradient Boosted Decision Trees<br>  use numeric scores instead of just boolean classes<br>  Multiple trees combined additively</li>
 </ul>
 <h3 id="ML-Modern-Classification"><a href="#ML-Modern-Classification" class="headerlink" title="ML Modern Classification"></a>ML Modern Classification</h3><ul>
 <li><p>Binary classification: simply means 2-choice output</p>
@@ -108,11 +131,110 @@
 - Error Analysis</code></pre></li>
 </ul>
 <h3 id="Multi-Class-Classification"><a href="#Multi-Class-Classification" class="headerlink" title="Multi-Class Classification"></a>Multi-Class Classification</h3><p>(different from multi-lable classification)<br>    Decision Tree<br>    Conversion to Binary Classification:<br>        One-vs-Rest Approach: Learn one seperate classifier for each output class, then Convert goodness scores into classification(e.g. choose class with highest goodness score)<br>        improvement: Probability Distribution(convert each class into probability).<br>            Softmax Function: Instead of picking the highest score, we feed all goodness scores into a Softmax Function. (Sigmoid Function can be seen as a special case of Softmax Function)<br>            Cross-Entropy Loss: Softmax is typically used together with Cross-Entropy Loss function<br>        General Form: y = Wx + b</p>
-<h3 id="31"><a href="#31" class="headerlink" title="31"></a>31</h3>
+<h3 id="Bias-and-Fairness"><a href="#Bias-and-Fairness" class="headerlink" title="Bias and Fairness"></a>Bias and Fairness</h3><ul>
+<li>Biased Data<br>  Survivorship bias<br>  Selection bias<br>  Geographical distribution<br>  Gender distribution</li>
+<li>Output Fairness<br>  Causes: 1) Not enough diversity in trainning data<pre><code>2) Not enough diversity in test data
+3) Not enough error analysis
+4) Amplication of Inherent Bias(stereotypes) in Data</code></pre></li>
+<li>Bias Reduction<br>  Debias by neutralizing embeddings with respect to relevant axis</li>
+</ul>
+<h3 id="Interpretable-Explainable-AI"><a href="#Interpretable-Explainable-AI" class="headerlink" title="Interpretable/Explainable AI"></a>Interpretable/Explainable AI</h3><ul>
+<li><p>Why Interpretable/Explainable AI(XAI)?<br>  1) Legal/Fairness consideration<br>  2) Trustworthy AI<br>  3) Improving models</p>
+</li>
+<li><p>Interpretability vs. Explainability<br>|Can understand exactly what the model is doing|Can get an for a decision but not necessary all details|<br>|Only possible for simple models|wide range of models|<br>|Possibly higher error rate if the model is too simple|–|</p>
+</li>
+<li><p>Interpretability<br>  Interpretable models: Decision trees, Linear models<br>  However, the more features in a linear model, the more challenging to understand the weights and predictions<br>  One way to overcome this is to <strong><em>minimize the loss function</em></strong> (i.e. stochastic gradient descent, which starts with random weights and adjust the weights based on gradients to get a lower error)<br>  However, stochastic gradient descent most likely set all weights non-zero, which makes it hard to understand what the model is doing.<br>  An improvement is <strong><em>L1-Regularization</em></strong>, which not only consider the loss, but also using a weighting factor to indicate how much to look at the weights. (encourage the weights to be as small basically close to zero as possible, key features have large weights while others are encouraging to be zero)</p>
+</li>
+</ul>
+<ul>
+<li>How to address explainability.<br>  1) Heatmaps<br>  <strong><em>Relevence propagation:</em></strong> Go back all the <strong><em>forward computation</em></strong> steps and retrace from the final outputs, basically back to the input to figure out which parts contributed to final output.<br>  2) Global Approximation<br>  Try to come up a simpler model, which is easier to understand and as good as the real model.<br>  May use local approximation with LIME: for each specific decision, you learn a different simple model, and use that to provide an explaination</li>
+</ul>
+<h3 id="Deep-Learning-Intro"><a href="#Deep-Learning-Intro" class="headerlink" title="Deep Learning Intro"></a>Deep Learning Intro</h3><ul>
+<li><p>Muti-Layer Perceptron<br>Input Layer –&gt; Hidden Layer –&gt; Output Layer<br>  Feed-Forward Neural Network</p>
+<p>  Activaction Functions: Sigmoid, tanh, ReLU…</p>
+</li>
+</ul>
+<h3 id="Deep-Learning-Applications"><a href="#Deep-Learning-Applications" class="headerlink" title="Deep Learning Applications"></a>Deep Learning Applications</h3><p>Convolutional Neural Network(CNN): look at mutiple metrics that apply to smaller part of the image)</p>
+<ul>
+<li><p>Image Classification<br>  Object Recognition<br>  Self-Driving Cars<br>  Neural Style: take one image as input and train the model to use some patches from another image, output a combined style of image<br>GANs: generate completely new image<br>  input–&gt;generator–&gt;discriminator<br>  real data –&gt; discriminator</p>
+</li>
+<li><p>Textual Processing<br>  CNN: text classification, detecting positive/negative review (better than bag-of-word, which don’t preserve any information about order of words)<br>  Reading Comprehension<br>  Transformers(i.e. machine translation, generate creately new text)</p>
+</li>
+<li><p>Semantic Tasks<br>  Image Caption Generation (Input: Image, output: Text)<br>  Image-Based Question Answering (Input: Text+Image, output: Text)</p>
+</li>
+<li><p>Learning from Experience<br>  Reinforcement Learning (i.e. to predict what a player should do, Computer trains by playing on its own…)</p>
+</li>
+</ul>
+<h3 id="Data-Mining"><a href="#Data-Mining" class="headerlink" title="Data Mining"></a>Data Mining</h3><ul>
+<li><p>Frequent pattern mining<br>  Given a <strong><em>support threshold s</em></strong>, then sets of items that appear in at least <strong><em>s</em></strong> baskets are called <strong><em>frequent itemsets</em></strong><br>  The simplest approach: Go through list of baskets once, Use counter for each subset (problem: number fo subsets too large)<br>  <strong><em>Apriori Algorithm</em></strong>:</p>
+<pre><code>Downward Closure Property: Any subset of a frequent itemset must be frequent
+Idea: Start with smaller subsets. Larger ones can only be candidates if all smaller ones are frequent</code></pre></li>
+<li><p>Association rule mining<br>  People who bought {x,y,z} tend to buy {v,w}<br>  {i<sub>1</sub>,…,i<sub>k</sub>}–&gt;j<br>  <strong><em>Confidence</em></strong>of association rule I–&gt;j: the probability of j given I={i<sub>1</sub>,…,i<sub>k</sub>}<br>  <strong><em>Interest</em></strong> of association rule I–&gt;j: difference between its confidence and the fraction of baskets that contain j. Interest(I–&gt;j)=|Conf(I–&gt;j)-Pr[j]|<br>  To find all association rules with support&gt;=s and confidence&gt;=c<br>  step1: Find all frequent itemsets I (Apriori Algorithm)<br>  step2: Rule generation (output the rules above the confidence threshold)</p>
+</li>
+<li><p>Other pattern mining:<br>  Sequential pattern mining<br>  Graph pattern mining</p>
+</li>
+</ul>
+<h3 id="Data-Mining-Recommendation"><a href="#Data-Mining-Recommendation" class="headerlink" title="Data Mining: Recommendation"></a>Data Mining: Recommendation</h3><ul>
+<li><p>Kinds of Recommendatons:<br>  Universal manually curated<br>  Universal rankings<br>  Frequent patterns: item-specific<br>  Personalized recommendations: person-specific</p>
+<pre><code>rating prediction
+top-N recommendation</code></pre></li>
+<li><p>Algorithms<br>  1) Content-Based</p>
+<pre><code>find similar items, don&apos;t need any user data at all
+downside: insufficient diversity</code></pre><p>  2) Collaborative Filtering</p>
+<pre><code>Recommend items based on only on the users past behavior
+Simplest Form: Neighbourhood-Based Collaborative Filtering: 
+    find what a user has bought --&gt; find users who also have bought these --&gt; find what else those users have bought --&gt; rank those books
+    cons: biased towards the most popular items (not really much better than Frequent Pattern Mining, not taking into acount the similarity between users enough)
+General Form: Matrix Factorization
+              Matrix Factorization Variants:
+                  add a weighting matrix
+                User-based/Item-based
+                overall mean rating + user bias(strict user) + item bias(popular item) + Matrix Factorization</code></pre><p>  3) Hybrid Algorithms</p>
+</li>
+<li><p>Cold Start Problem<br>  New user problem<br>  New item problem</p>
+</li>
+</ul>
+<h4 id="review"><a href="#review" class="headerlink" title="review"></a>review</h4><ul>
+<li><p>Data Acquisition: Web Scraping, APIs, JSON Parsing, Files</p>
+</li>
+<li><p>Data Cleaning and Preprocessing using DataFrame(i.e. pandas)<br>  removing bad/illegal formatted data<br>  transforming/normalizing data<br>  Columns: Categorical &amp; Numerical</p>
+</li>
+<li><p>Data Analysis<br>  Descriptive Statistics, Histograms(give us basic feels of what the data looks like)<br>  Relationships(Scatterplots, Correlations)<br>  Bootstrap Method: repeatedly re-sample from same original sample(with replacement)</p>
+</li>
+<li><p>Describing Graphs???Clustering Coefficient,Diameter</p>
+</li>
+<li><p>Big Data<br>  parallel computing:</p>
+<pre><code>multiple processors/cores
+tightlly computed with shared memory
+(need to avoid reading/writing at the same time...difficult to design bug-free program)</code></pre><p>  Distributed Programming:</p>
+<pre><code>multiple machines
+loosely coupled with separate memory (communication is slow)
+less reliable infrastructure (network delays, machine fails, etc.)
+task --&gt; split into multiple seperate machines, each of them deal with part of the task --&gt; aggregate all the partial results into overall result
+i.e. wordcounting using MapReduce
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">val wordCounts = </span><br><span class="line">	inputLines</span><br><span class="line">	.flatMap(line =&gt; getWords(line))</span><br><span class="line">	.map(word =&gt; (word,1))</span><br><span class="line">	.reduceByKey(_ + _)</span><br><span class="line"># Spark vs. Hadoop MapReduce</span><br><span class="line">#1. MapReduce has to read from and write to a disk, while Spark uses RDD that enables multiple map operations in memory faster for iterative and interactive computing</span><br><span class="line">#2. more flexible.. connect to hdfs but also to databases.. additional high-level APIs</span><br></pre></td></tr></table></figure></code></pre></li>
+<li><p>Modeling Data<br>  Vectors<br>  Text Representations (bag of word vectors– used for feature extraction)</p>
+</li>
+<li><p>Machine Learning<br>  Training vs. Test vs. Validation Data</p>
+<pre><code>Test: evaluate how well the ML algorithm has done at learning a good model for prediction
+Validation: used during model development to keep accessing how well you are doing while tuning models</code></pre><p>  Loss Function</p>
+<pre><code>Mean Squared Error
+Precision
+Recall</code></pre><p>  Underfitting and Overfitting</p>
+<p>  Explainability and Interpretability</p>
+<p>  Algorithms:</p>
+<pre><code>Linear Regression
+Linear Classification: Linear Regression + Activation Function(simplest: sign function)
+    Logistic Regression/Perceptron Model: Linear Regression + sigmoid function(converts the goodness socre to the probability from 0 to 1)
+    extended or general form: Linear Regression + softmax function(takes a vector of different scores, and output multiple probabilities that are sum up to 1)</code></pre></li>
+<li><p>Data Mining<br>  Frequent Patterns and Association Rules<br>  Personalized Recommendation            </p>
+</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/20/IntroDS/" data-id="ck9jgwt7q00074wumnyjdbbfe"
+      <a data-url="http://yoursite.com/2020/04/20/IntroDS/" data-id="ckbiopod300057wumz6qrwde9"
          class="article-share-link">Share</a>
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Science/">Data Science</a></li></ul>
