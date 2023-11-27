@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Junyan Dai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/main.bundle.css">
+  <script src="https://kit.fontawesome.com/4e5a72c756.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero is-primary" style="background-image: url('img/AdobeStock_94199826.png');background-size: 100% 100%;">
+    <!-- navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <div class="navbar-item is-hidden-desktop">
+          <a href="mailto:junyan.dai@rutgers.edu" class="icon is-large has-text-light">
+            <i class="fas fa-2x fa-envelope"></i>
+          </a>
+        </div>
+        <div class="navbar-item is-hidden-desktop">
+          <a href="https://www.linkedin.com/in/junyan-dai" class="icon is-large has-text-light" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-2x fa-linkedin-in"></i>
+          </a>
+        </div>
+        <div class="navbar-item is-hidden-desktop">
+          <a href="https://github.com/DaiJunyan" class="icon is-large has-text-light" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-2x fa-github"></i>
+          </a>
+        </div>
+        <div class="navbar-item is-hidden-desktop">
+          <a href="https://www.instagram.com/danieldaijunyan" class="icon is-large has-text-light" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-2x fa-instagram"></i>
+          </a>
+        </div>
+        <div class="navbar-item is-hidden-desktop">
+          <a class="icon is-large has-text-light modal-trigger" data-target="weixin-modal">
+            <i class="fab fa-2x fa-weixin"></i>
+          </a>
+        </div>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <a href="mailto:junyan.dai@rutgers.edu" class="icon is-large has-text-light">
+              <i class="fas fa-2x fa-envelope"></i>
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a href="https://www.linkedin.com/in/junyan-dai" class="icon is-large has-text-light" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-2x fa-linkedin-in"></i>
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a href="https://github.com/DaiJunyan" class="icon is-large has-text-light" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-2x fa-github"></i>
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a href="https://www.instagram.com/danieldaijunyan" class="icon is-large has-text-light" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-2x fa-instagram"></i>
+            </a>
+          </div>
+          <div class="navbar-item">
+            <a class="icon is-large has-text-light modal-trigger" data-target="weixin-modal">
+              <i class="fab fa-2x fa-weixin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- hero-body -->
+    <div class="hero-body">
+      <div class="container">
+        <div class="level">
+          <div class="level-item has-text-centered">
+            <figure class="image is-128x128">
+              <img class="is-rounded" src="img/me-big.png">
+            </figure>
+          </div>
+        </div>
+        <div class="columns has-text-centered">
+          <div class="column">
+            <h1 class="title is-1">
+              Junyan Dai
+            </h1>
+            <h2 class="subtitle">
+              Developer
+            </h2>
+<!--            <p>-->
+<!--              <a href="docs/resume.pdf" class="icon has-text-light">-->
+<!--                <i class="fas fa-file-word"></i> <strong>Resume</strong>-->
+<!--              </a>-->
+<!--            </p>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  About Me -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">About Me</h1>
+      <hr />
+      <p>
+        I am a Ph.D. student at Rutgers University New Brunswick. I am working with Prof. Xiang Liu in the Department of
+        Civil and Environmental Engineering. My research interests include Transportation IoT, Data Analytics, and
+        Machine Learning.
+      </p>
+    </div>
+  </section>
+
+  <!--  Experience -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Experience</h1>
+      <hr />
+      <div class="card">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+              <figure class="image is-48x48">
+                <img src="img/Rutgers-CAIT-logo.svg" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">Center for Advanced Infrastructure and Transportation</p>
+              <p class="subtitle is-6">Graduate Research Assistant - <time datetime="2021-9">Sept. 2021</time> -
+                <time datetime="present">Present</time> </p>
+            </div>
+          </div>
+          <div class="content">
+            <p>Developing edge-end, back-end, and front-end.</p>
+            <ul>
+              <li>Initiated the design and development of a <b>Python</b>-based multi-process and multi-thread
+                <b>edge-end</b> system to receive data from onboard sensors via serial ports/UDP/RTSP, process and push
+                the data to cloud server and <b>MySQL</b> Database.</li>
+              <li>Developed a multi-thread <b>back-end</b> server on <b>AWS EC2</b> to collect and persist data from
+                edge-servers by UDP, and build <b>Websocket</b> connections between the server and web browsers.</li>
+              <li>Built a <b>Svelte</b>-based <b>front-end</b> dashboard to track the vehicles' position on a basemap using
+                <b>ArcGIS JavaScript API</b>, live-stream videos onboard cameras via <b>HLS</b>,
+                and monitor health condition of each device through <b>CloudWatch</b>. </li>
+              <li>Designed and trained an <b>XGBoost</b> model to predict signal equipment failures in the next month
+                using past inspection and maintenance data giving an AUC of <b>74%</b>.</li>
+              <li>Built an interactive web application for risk and resilience analysis of transportation
+                infrastructure using Python <b>Flask</b> framework and ArcGIS JavaScript API.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Javascript</span>
+              <span class="tag">HTML&CSS</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">AWS EC2</span>
+              <span class="tag">RDS</span>
+              <span class="tag">S3</span>
+              <span class="tag">CloudWatch</span>
+              <span class="tag">Kinesis</span>
+              <span class="tag">Lambda</span>
+              <span class="tag">Git/GitHub/CodeCommit</span>
+              <span class="tag">CodeDeploy&CodeBuild</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Projects -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Projects</h1>
+      <hr />
+      <div class="tile is-ancestor">
+        <div class="tile is-vertical is-12">
+          <div class="tile">
+            <div class="tile is-parent">
+              <article class="tile is-child notification">
+                <p class="title is-5">Rail IoT</p>
+                <figure class="image is-4by3">
+                  <img class="modal-trigger" data-target="project-1-modal" src="img/projects/Rail IoT/home.png">
+                </figure>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification">
+                <p class="title is-5">Risk Analysis Web Tool</p>
+                <figure class="image is-4by3">
+                  <img class="modal-trigger" data-target="project-2-modal" src="img/projects/Risk Analysis Web Tool/1.jpg">
+                </figure>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tile is-ancestor">
+        <div class="tile is-vertical is-12">
+          <div class="tile">
+            <div class="tile is-parent">
+              <article class="tile is-child notification">
+                <p class="title is-5">Asset Defects Prediction</p>
+                <figure class="image is-4by3">
+                  <img class="modal-trigger" data-target="project-3-modal" src="https://phm-europe.org/wp-content/uploads/2022/03/DC_Figure_1.png">
+                </figure>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification">
+                <p class="title is-5">One-Click ML</p>
+                <figure class="image is-4by3">
+                  <img class="modal-trigger" data-target="project-4-modal" src="img/projects/One-Click ML/1.png">
+                </figure>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification">
+                <p class="title is-5">DBM with Alexa</p>
+                <figure class="image is-4by3">
+                  <img class="modal-trigger" data-target="project-5-modal" src="img/projects/DBM with Alexa/3.png">
+                </figure>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Education -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Education</h1>
+      <hr />
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p class="title is-4">Rutgers University - New Brunswick</p>
+            <p class="subtitle is-6">Ph.D. in Civil and Environmental Engineering, <time datetime="2021-9">Sept. 2021
+            </time> - <time datetime="present">Present</time></p>
+          </div>
+          <div class="content">
+            Focus: Transportation IoT, Rail Safety, Machine Learning.
+            <ul>
+              <li>Outstanding Graduate Student Award, ITSNJ.
+                <span style="float: right;">
+                  <time datetime="2023-2">Feb. 2023</time>
+                </span>
+              </li>
+              <li>PHME22 Data Challenge, 3rd price.
+                <span style="float: right;">
+                  <time datetime="2022-7">July 2022</time>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card card-gap">
+        <div class="card-content">
+          <div class="content">
+            <p class="title is-4">Rutgers University - New Brunswick</p>
+            <p class="subtitle is-6">B.S. in Computer Science, <time datetime="2019-9">Sept. 2019</time> - <time
+                    datetime="2021-5">May 2021</time></p>
+          </div>
+          <div class="content">
+            <ul>
+              <li>Charles H. Winfield Scholarship, School of Arts and Sciences.
+                <span style="float: right;">
+                  <time datetime="2020-9">Sept. 2020</time> - <time datetime="2021-5">May 2021</time>
+                </span>
+              </li>
+              <li>Dean's List, every semester, School of Arts and Sciences.
+                <span style="float: right;">
+                  <time datetime="2019-9">Sept. 2019</time> - <time datetime="2021-5">May 2021</time>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  Contact -->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Contact</h1>
+      <hr />
+      <nav class="level">
+        <div class="level-item has-text-centered">
+          <div>
+            <a href="mailto:junyan.dai@rutgers.edu" class="icon is-large">
+              <i class="fas fa-2x fa-envelope"></i>
+            </a>
+            <p class="heading"><a href="mailto:junyan.dai@rutgers.edu">junyan.dai@rutgers.edu</a></p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <a href="https://www.linkedin.com/in/junyan-dai" class="icon is-large" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-2x fa-linkedin-in"></i>
+            </a>
+            <p class="heading">
+              <a href="https://www.linkedin.com/in/junyan-dai" target="_blank" rel="noopener noreferrer">linkedin</a>
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <a href="https://github.com/DaiJunyan" class="icon is-large" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-2x fa-github"></i>
+            </a>
+            <p class="heading">
+              <a href="https://github.com/DaiJunyan" target="_blank" rel="noopener noreferrer">github.com/DaiJunyan</a>
+            </p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <a class="icon is-large modal-trigger" data-target="weixin-modal">
+              <i class="fab fa-2x fa-weixin"></i>
+            </a>
+            <p class="heading">
+              <a class="modal-trigger" data-target="weixin-modal">WeChat</a>
+            </p>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="project-1-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Rail IoT</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+
+        <div id="project-1-modal-carousel" class="carousel">
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Rail IoT/1_homepage.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Rail IoT/2_playback.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Rail IoT/3_video_streaming.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Rail IoT/4_health_monitoring.png">
+          </figure>
+        </div>
+
+        <div class="content">
+
+          <ul>
+            <li>Worked in a team of two to design and develop front-end, back-end, and edge-end of this connected systems
+              for live tracking and health monitoring of light rails. </li>
+            <li>Achieved high-accuracy positioning of the vehicle in various scenarios using GPS, IMU, and UWB fusion
+              (centimeter-level within UWB coverage, 6% relative error with IMU dead-reckoning).
+            <li>Developed ~6 microservices in Python including SSH Tunnel management for video streaming, log rotation,
+              and CV algorithms deployment.</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML&CSS</span>
+            <span class="tag">Multithreading&Multiprocessing</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">AWS</span>
+            <span class="tag">TCP/UDP/RTSP</span>
+            <span class="tag">Agile Development</span>
+            <span class="tag">Failover</span>
+          </div>
+
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="project-2-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Risk and Resilience Analysis Web Tool</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+
+        <div id="project-2-modal-carousel" class="carousel">
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Risk Analysis Web Tool/1.jpg">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Risk Analysis Web Tool/2.jpg">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Risk Analysis Web Tool/3.jpg ">
+          </figure>
+        </div>
+
+        <div class="content">
+
+          <ul>
+            <li>Developed a map-based tool to estimate and visualize flood risks for all segments in the roadway network
+              considering various future sea level rise scenarios.</li>
+            <li>Output risk levels are shown on the map by three color scales</li>
+            <li>Detailed input data and output risk values are shown on the road info page by clicking on/selecting the
+              specific segment</li>
+            <li>Editable input parameters of each road segment within the roadway info page</li>
+            <li>Global parameters can be updated at once across the network from a side widget</li>
+            <li>Dataset including output risks is exportable as a CSV/HTML file</li>
+          </ul>
+
+          <p>
+            Publications:<br>
+            -
+            <a href="https://doi.org/10.1016/j.ocecoaman.2023.106723" target="_blank" rel="noopener noreferrer">
+              Zhang, R., <b>Dai, J.</b>, Bai, Y., Barone, D., & Hill-Beaton, L. (2023). Risk-based transportation
+              infrastructure management: An integrated framework and case study in USVI against coastal flood and sea
+              level rise. Ocean & Coastal Management, 242, 106723.
+            </a> <br>
+            -
+            <a href="https://rosap.ntl.bts.gov/view/dot/63606" target="_blank" rel="noopener noreferrer">
+              Bai, Y., Barone, D., Hill-Beaton, L., <b>Dai, J.</b>, Dong, R., Mallangada, N., ... & Solutions, E.
+              (2022). Risk and Resilience Analysis Tool for Infrastructure Asset Management (No. CAIT-UTC-REG 38). Rutgers
+              University. Center for Advanced Infrastructure and Transportation.
+            </a>
+          </p>
+
+
+          <div class="tags">
+            <span class="tag">HTML&CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">ArcGIS</span>
+          </div>
+
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="project-3-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">PCB Production Line Status Prediction</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div id="project-3-modal-carousel" class="carousel">
+          <figure class="image is-16by9 carousel-cell">
+            <img src="https://phm-europe.org/wp-content/uploads/2022/03/DC_Figure_1.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/PCB Defect Prediction/2.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/PCB Defect Prediction/3.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/PCB Defect Prediction/4.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/PCB Defect Prediction/5.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Signal Failure Prediction/2.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/Signal Failure Prediction/1.png">
+          </figure>
+        </div>
+
+        <div class="content">
+
+          <ul>
+            <li>PCB Production Line Status Prediction</li>
+            <li>Rail Transit Signal Failure Prediction</li>
+          </ul>
+          <p>
+            Publications:<br>
+            -
+            <a href="https://doi.org/10.36001/phme.2022.v7i1.3371" target="_blank" rel="noopener noreferrer">
+              Tang, H., Tian, Y., <b>Dai, J.</b>, Wang, Y., Cong, J., Liu, Q., ... & Fu, Y. (2022, June). Prediction of
+              Production Line Status for Printed Circuit Boards. In PHM Society European Conference (Vol. 7, No. 1, pp.
+              563-570).
+            </a>
+            <br>
+            -
+            <a href="https://doi.org/10.1177/09544097221127781" target="_blank" rel="noopener noreferrer">
+              <b>Dai, J.</b>, & Liu, X. (2023). Machine learning based prediction of rail transit signal failure: A
+              case study in the United States. Proceedings of the Institution of Mechanical Engineers, Part F: Journal
+              of Rail and Rapid Transit, 237(5), 680-689.
+            </a>
+          </p>
+
+          <div class="tags">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Imbalanced Data Mining</span>
+            <span class="tag">Pytorch</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Matplotlib</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+          </div>
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="project-4-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">One-Click Machine Learning Platform</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div id="project-4-modal-carousel" class="carousel">
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/1.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/2.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/3.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/4.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/5.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/6.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/7.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/8.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/One-Click ML/9.png">
+          </figure>
+        </div>
+
+        <div class="content">
+          <p>
+
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">HTML&CSS</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Celery</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="project-5-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Database Management with Alexa</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <div id="project-5-modal-carousel" class="carousel">
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/DBM with Alexa/1.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/DBM with Alexa/2.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/DBM with Alexa/3.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/DBM with Alexa/4.png">
+          </figure>
+          <figure class="image is-16by9 carousel-cell">
+            <img src="img/projects/DBM with Alexa/5.png">
+          </figure>
+        </div>
+
+        <div class="content">
+          <p>
+
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">HTML&CSS</span>
+            <span class="tag">AWS</span>
+            <span class="tag">EC2</span>
+            <span class="tag">RDS</span>
+            <span class="tag">Redshift</span>
+            <span class="tag">S3</span>
+            <span class="tag">Alexa</span>
+          </div>
+        </div>
+
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Close</button>
+      </footer>
+    </div>
+  </div>
+
+  <div id="weixin-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title"></p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <figure class="image is-square">
+      <img src="img/weixin.jpg" alt="Weixin QR Code">
+      </figure>
+      <footer class="modal-card-foot">
+      </footer>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <a href="https://github.com/mmacneil/devfolio" target="_blank" class="icon has-text-primary">
+          <i class="fab fa-github"></i> <strong>devfolio</strong></a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/bundle.js"></script>
+</body>
+
+</html>
