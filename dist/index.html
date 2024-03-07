@@ -154,14 +154,26 @@
           <div class="content">
             <p>Developing edge-end, back-end, and front-end.</p>
             <ul>
-              <li>Initiated the design and development of a <b>Python</b>-based multi-process and multi-thread
-                <b>edge-end</b> system to receive data from onboard sensors via serial ports/UDP/RTSP, process and push
-                the data to cloud server and <b>MySQL</b> Database.</li>
-              <li>Developed a multi-thread <b>back-end</b> server on <b>AWS EC2</b> to collect and persist data from
-                edge-servers by UDP, and build <b>Websocket</b> connections between the server and web browsers.</li>
-              <li>Built a <b>Svelte</b>-based <b>front-end</b> dashboard to track the vehicles' position on a basemap using
-                <b>ArcGIS JavaScript API</b>, live-stream videos onboard cameras via <b>HLS</b>,
-                and monitor health condition of each device through <b>CloudWatch</b>. </li>
+              <li>Developed a real-time passenger railcar positioning tool for both web display and onboard display.</li>
+              <li>Initiated the design and development of a multiprocessing edge server to read and decode data from
+                onboard sensors for efficient storage to <b>MySQL</b> and <b>InfluxDB</b>, fuse data on the edge via
+                <b>MQTT</b>, and send the solution to cloud.</li>
+              <li>Engineered and implemented a backend server on <b>AWS EC2</b> capable of receiving and processing
+                real-time data from edge servers distributed across various vehicles.</li>
+              <li>Developed a <b>WebSocket</b> server to enable real-time communication with connected browsers for
+                instant updates of the vehicles’ status.</li>
+              <li>Developed <b>RESTful APIs</b> using Python <b>Flask</b> Framework to allow users to query past data
+                from MySQL or InfluxDB.</li>
+              <li>Built a web-based dashboard for tracking the vehicles on a map, real-time multi-camera viewing, and
+                graphing various performance metrics using <b>HTML/CSS</b>, <b>JavaScript</b>, and <b>ArcGIS API</b>
+                served on AWS EC2 with <b>Nginx</b>. </li>
+              <li>Engineered a video streaming feature using <b>FFmpeg</b> to convert the <b>RTSP</b> stream to
+                <b>HLS</b> and stream the video to web browser with hls.js.</li>
+              <li>Established monitoring tools using <b>Telegraf</b>, <b>Grafana</b>, and <b>AWS CloudWatch</b> to
+                monitor edge status and track server performance, identifying bottlenecks and optimizing resource
+                utilization.</li>
+              <li><b>Dockerized</b> various server applications and utilized <b>Docker Compose</b> for orchestrating
+                multi-container applications, enhancing deployment consistency and portability</li>
               <li>Designed and trained an <b>XGBoost</b> model to predict signal equipment failures in the next month
                 using past inspection and maintenance data giving an AUC of <b>74%</b>.</li>
               <li>Built an interactive web application for risk and resilience analysis of transportation
@@ -172,6 +184,10 @@
               <span class="tag">Javascript</span>
               <span class="tag">HTML&CSS</span>
               <span class="tag">MySQL</span>
+              <span class="tag">InfluxDB</span>
+              <span class="tag">Telegraf</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Linux</span>
               <span class="tag">AWS EC2</span>
               <span class="tag">RDS</span>
               <span class="tag">S3</span>
