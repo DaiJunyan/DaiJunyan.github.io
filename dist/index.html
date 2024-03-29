@@ -151,50 +151,15 @@
             </div>
           </div>
           <div class="content">
-            <p>Developing edge-end, back-end, and front-end.</p>
+<!--            <p>Developing edge-end, back-end, and front-end.</p>-->
             <ul>
-              <li>Developed a real-time passenger railcar positioning tool for both web display and onboard display.</li>
-              <li>Initiated the design and development of a multiprocessing edge server to read and decode data from
-                onboard sensors for efficient storage to <b>MySQL</b> and <b>InfluxDB</b>, fuse data on the edge via
-                <b>MQTT</b>, and send the solution to cloud.</li>
-              <li>Engineered and implemented a backend server on <b>AWS EC2</b> capable of receiving and processing
-                real-time data from edge servers distributed across various vehicles.</li>
-              <li>Developed a <b>WebSocket</b> server to enable real-time communication with connected browsers for
-                instant updates of the vehicles’ status.</li>
-              <li>Developed <b>RESTful APIs</b> using Python <b>Flask</b> Framework to allow users to query past data
-                from MySQL or InfluxDB.</li>
-              <li>Built a web-based dashboard for tracking the vehicles on a map, real-time multi-camera viewing, and
-                graphing various performance metrics using <b>HTML/CSS</b>, <b>JavaScript</b>, and <b>ArcGIS API</b>
-                served on AWS EC2 with <b>Nginx</b>. </li>
-              <li>Engineered a video streaming feature using <b>FFmpeg</b> to convert the <b>RTSP</b> stream to
-                <b>HLS</b> and stream the video to web browser with hls.js.</li>
-              <li>Established monitoring tools using <b>Telegraf</b>, <b>Grafana</b>, and <b>AWS CloudWatch</b> to
-                monitor edge status and track server performance, identifying bottlenecks and optimizing resource
-                utilization.</li>
-              <li><b>Dockerized</b> various server applications and utilized <b>Docker Compose</b> for orchestrating
-                multi-container applications, enhancing deployment consistency and portability</li>
-              <li>Designed and trained an <b>XGBoost</b> model to predict signal equipment failures in the next month
-                using past inspection and maintenance data giving an AUC of <b>74%</b>.</li>
-              <li>Built an interactive web application for risk and resilience analysis of transportation
-                infrastructure using Python <b>Flask</b> framework and ArcGIS JavaScript API.</li>
+              <li>Spearheaded 3+ PoCs to tackle transportation challenges and collaborated with PI on drafting
+                grant proposals.</li>
+              <li>Mentored 8 undergraduate and graduate students, fostering their research understanding, ensuring task
+                completion, and leveraging their interests across diverse topics.</li>
             </ul>
             <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Javascript</span>
-              <span class="tag">HTML&CSS</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">InfluxDB</span>
-              <span class="tag">Telegraf</span>
-              <span class="tag">Grafana</span>
-              <span class="tag">Linux</span>
-              <span class="tag">AWS EC2</span>
-              <span class="tag">RDS</span>
-              <span class="tag">S3</span>
-              <span class="tag">CloudWatch</span>
-              <span class="tag">Kinesis</span>
-              <span class="tag">Lambda</span>
-              <span class="tag">Git/GitHub/CodeCommit</span>
-              <span class="tag">CodeDeploy&CodeBuild</span>
+<!--              <span class="tag">Python</span>-->
             </div>
           </div>
         </div>
@@ -271,11 +236,11 @@
         <div class="card-content">
           <div class="content">
             <p class="title is-4">Rutgers University - New Brunswick</p>
-            <p class="subtitle is-6">Ph.D. in Civil and Environmental Engineering, <time datetime="2021-9">Sept. 2021
+            <p class="subtitle is-6">Ph.D. in Transportation Engineering, <time datetime="2021-9">Sept. 2021
             </time> - <time datetime="present">Present</time></p>
           </div>
           <div class="content">
-            Focus: Transportation IoT, Rail Safety, Machine Learning.
+            Focus: Intelligent Transportation System, Transportation IoT, Machine Learning.
             <ul>
               <li>Outstanding Graduate Student Award, ITSNJ.
                 <span style="float: right;">
@@ -295,19 +260,18 @@
         <div class="card-content">
           <div class="content">
             <p class="title is-4">Rutgers University - New Brunswick</p>
-            <p class="subtitle is-6">B.S. in Computer Science, <time datetime="2019-9">Sept. 2019</time> - <time
-                    datetime="2021-5">May 2021</time></p>
+            <p class="subtitle is-6">B.S. in Computer Science, <time datetime="2021-5">May 2021</time></p>
           </div>
           <div class="content">
             <ul>
               <li>Charles H. Winfield Scholarship, School of Arts and Sciences.
                 <span style="float: right;">
-                  <time datetime="2020-9">Sept. 2020</time> - <time datetime="2021-5">May 2021</time>
+                  <time datetime="2020-9">Sept. 2020</time>
                 </span>
               </li>
-              <li>Dean's List, every semester, School of Arts and Sciences.
+              <li>Dean's List, School of Arts and Sciences.
                 <span style="float: right;">
-                  <time datetime="2019-9">Sept. 2019</time> - <time datetime="2021-5">May 2021</time>
+                  All semesters
                 </span>
               </li>
             </ul>
@@ -393,24 +357,40 @@
         <div class="content">
 
           <ul>
-            <li>Worked in a team of two to design and develop front-end, back-end, and edge-end of this connected systems
-              for live tracking and health monitoring of light rails. </li>
-            <li>Achieved high-accuracy positioning of the vehicle in various scenarios using GPS, IMU, and UWB fusion
-              (centimeter-level within UWB coverage, 6% relative error with IMU dead-reckoning).
-            <li>Developed ~6 microservices in Python including SSH Tunnel management for video streaming, log rotation,
-              and CV algorithms deployment.</li>
+            <li>Initiated and developed a positioning system for passenger trains in partnership with a public
+              transportation provider and a leading networking company, resulting in a 98% reduction in position
+              error. </li>
+            <li>Designed and developed an edge server to read and decode data from onboard sensors, fuse data for edge
+              computing via MQTT, and store the data into MySQL and S3 via AWS Kinesis and AWS Lambda. </li>
+            <li>Developed a WebSocket server on EC2 to enable real-time communication with connected browsers for
+              instant updates of the vehicles' status on a map-based frontend.</li>
+            <li>Developed RESTful APIs using Python Flask Framework to enable querying past data from MySQL or InfluxDB,
+              allowing retrieval of vehicle positions and statuses based on specified time ranges and vehicle IDs.</li>
+            <li>DEstablished monitoring tools using Telegraf, InfluxDB, and Grafana to track edge status and server
+              performance, resulting in the identification and immediate resolution of ~15 issues.</li>
+            <li>Containerized services, utilized Docker Compose for orchestrating multi-container applications, and
+              implemented AWS CodePipeline for automated building and deployment, reducing manual effort by 80%.</li>
           </ul>
 
           <div class="tags">
             <span class="tag">Python</span>
             <span class="tag">JavaScript</span>
-            <span class="tag">HTML&CSS</span>
-            <span class="tag">Multithreading&Multiprocessing</span>
+            <span class="tag">HTML/CSS</span>
             <span class="tag">MySQL</span>
-            <span class="tag">AWS</span>
+            <span class="tag">InfluxDB</span>
+            <span class="tag">Telegraf</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">AWS EC2</span>
+            <span class="tag">AWS RDS</span>
+            <span class="tag">AWS Cloudwatch</span>
+            <span class="tag">AWS Lambda</span>
+            <span class="tag">AWS Kinesis</span>
+            <span class="tag">CodePipeline</span>
+            <span class="tag">CodeBuild</span>
+            <span class="tag">CodeDeploy</span>
             <span class="tag">TCP/UDP/RTSP</span>
-            <span class="tag">Agile Development</span>
-            <span class="tag">Failover</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
           </div>
 
         </div>
@@ -494,7 +474,7 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">PCB Production Line Status Prediction</p>
+        <p class="modal-card-title">Asset Status/Defects Prediction</p>
         <button class="delete" aria-label="close"></button>
       </header>
       <section class="modal-card-body">
@@ -523,11 +503,17 @@
         </div>
 
         <div class="content">
-
-          <ul>
-            <li>PCB Production Line Status Prediction</li>
-            <li>Rail Transit Signal Failure Prediction</li>
-          </ul>
+          <p>Signal Equipment Failure Prediction</p>
+            <ul>
+              <li>Designed and trained an XGBoost model to predict signal equipment failures in the next month using
+                past inspection and maintenance data giving an AUC of 74%. </li>
+              <li>Applied SMOTE, random oversampling, and random undersampling to mitigate class imbalance in the
+                dataset, achieving a 9% improvement in AUC.</li>
+            </ul>
+          <p>PCB Production Line Status Prediction</p>
+            <ul>
+              <li>Third price in PHME22 Data Challenge</li>
+            </ul>
           <p>
             Publications:<br>
             -
@@ -548,6 +534,9 @@
           <div class="tags">
             <span class="tag">Machine Learning</span>
             <span class="tag">Imbalanced Data Mining</span>
+            <span class="tag">Neural Network</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">LightGBM</span>
             <span class="tag">Pytorch</span>
             <span class="tag">Scikit-Learn</span>
             <span class="tag">Matplotlib</span>
@@ -602,14 +591,20 @@
         </div>
 
         <div class="content">
-          <p>
+          <ul>
+            <li>Designed and built a web application using Python Flask framework, scikit-learn, SQLite, Celery, and
+              Redis for the lab, allowing researchers to train and evaluate machine learning models without the need
+              for coding expertise.</li>
+            <li>Trained a Neural Network model with Grid-Search Optimization and 5-fold Cross-Validation to detect 16
+              types of rolling stock faults giving an average F1-score of 0.97.</li>
+          </ul>
 
-          </p>
           <div class="tags">
             <span class="tag">Python</span>
-            <span class="tag">HTML&CSS</span>
+            <span class="tag">HTML/CSS</span>
             <span class="tag">SQLite</span>
             <span class="tag">Flask</span>
+            <span class="tag">Scikit-learn</span>
             <span class="tag">Celery</span>
             <span class="tag">Redis</span>
           </div>
